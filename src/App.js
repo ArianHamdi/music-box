@@ -5,7 +5,6 @@ import Landing from './Pages/Landing/Landing'
 import Main from './Routes/Main'
 import Genre from './Pages/Genre/Genre'
 
-process.env.CI = false;
 
 const App = () => {
 
