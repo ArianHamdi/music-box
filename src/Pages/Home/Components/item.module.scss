@@ -1,0 +1,45 @@
+.item {
+    width: 16rem;
+    cursor: pointer;
+}
+
+.like {
+    width: 16rem;
+    color: white;
+
+    img {
+        cursor: pointer;
+        width: 100%;
+    }
+
+    p {
+        font-size: 1.3rem;
+        margin: 0.2rem 0;
+    }
+
+    div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        p {
+            font-size: 1.1rem;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.song {
+    width: 16rem;
+    color: white;
+
+    img {
+        cursor: pointer;
+        width: 100%;
+    }
+
+    p {
+        font-size: 1.2rem;
+        margin: 0.2rem 0;
+    }
+}

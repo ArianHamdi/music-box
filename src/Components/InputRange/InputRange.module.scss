@@ -1,0 +1,87 @@
+.input {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    background: transparent; /* Otherwise white in Chrome */
+    transform: all 0.2s;
+}
+
+.input:hover::-webkit-slider-thumb {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 0rem;
+    width: 0rem;
+    border-radius: 10rem;
+    background: #053b64;
+    cursor: pointer;
+    margin-top: -5px;
+    // margin-left: -1px;
+    transform: all 0.2s;
+}
+
+.input::-moz-range-thumb {
+    border: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 10rem;
+    background: var(--color-tertiary);
+    cursor: pointer;
+}
+
+.input::-ms-thumb {
+    border: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 10rem;
+    background: var(--color-tertiary);
+    cursor: pointer;
+}
+
+.input::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1.5rem;
+    cursor: pointer;
+    background-image: linear-gradient(to right, var(--color-grey-1) 0%, var(--color-grey-1) 100%);
+    border-radius: 1.3px;
+    border: 6px solid var(--color-grey-2);
+}
+
+.input::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: var(--color-grey-1);
+    border-radius: 1.3px;
+}
+
+.input::-ms-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: var(--color-grey-1);
+    border-radius: 1.3px;
+}
+
+.input:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.input::-ms-track {
+    width: 100%;
+    cursor: pointer;
+
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+// .container {
+//     cursor: pointer;
+// }
+
+.container:hover .input::-webkit-slider-thumb {
+    display: block;
+}

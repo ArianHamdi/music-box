@@ -1,0 +1,39 @@
+.Flow {
+    display: flex;
+    padding: 4rem 12rem;
+    align-items: center;
+    background-color: var(--color-dark-2);
+
+    & > img {
+        width: 50%;
+    }
+
+    & > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 6rem;
+        margin-left: 4rem;
+        margin-bottom: 4rem;
+
+        & > h3 {
+            display: flex;
+            align-items: center;
+            font-size: 4rem;
+            font-weight: normal;
+            margin: 3rem 0;
+            text-transform: uppercase;
+
+            & > img {
+                width: 3rem;
+                margin-right: 1rem;
+            }
+        }
+
+        & > p {
+            font-size: 1.4rem;
+            line-height: 1.5;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.category {
+    display: grid;
+    align-content: start;
+    min-height: 100vh;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2rem;
+    padding: 10rem;
+    background-color: var(--color-dark-2);
+
+    h3 {
+        display: block;
+        color: var(--color-white-1);
+        margin-top: 5rem;
+        font-size: 1.78em;
+        grid-column: 1/-1;
+    }
+
+    img {
+        width: 100%;
+        cursor: pointer;
+    }
+}

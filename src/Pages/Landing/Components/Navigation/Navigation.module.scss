@@ -1,0 +1,18 @@
+.Navigation {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 15rem;
+    padding-left: 15rem;
+
+    & > ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+
+        & > * {
+            margin-right: 1rem;
+        }
+    }
+}

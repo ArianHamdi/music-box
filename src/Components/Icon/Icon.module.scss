@@ -1,0 +1,8 @@
+.icon {
+    cursor: pointer;
+    transition: fill 0.2s;
+}
+
+.icon:hover {
+    fill: var(--color-tertiary);
+}

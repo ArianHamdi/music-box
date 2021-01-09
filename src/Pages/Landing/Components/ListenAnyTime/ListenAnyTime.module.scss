@@ -1,0 +1,21 @@
+.ListenAnyTime {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20rem;
+    background-image: url("../../../../assets/ListenAnyTime.png");
+    background-size: cover;
+    background-position: right;
+    height: 50rem;
+
+    & > h3 {
+        font-size: 3rem;
+        font-weight: 400;
+        margin: 2rem 0;
+    }
+
+    & > p {
+        font-size: 1.4rem;
+        line-height: 2;
+    }
+}
