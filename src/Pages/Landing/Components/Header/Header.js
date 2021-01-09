@@ -1,7 +1,9 @@
 import styles from './Header.module.scss';
 import Button from '../../../../Components/Button/Button'
 
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { useAllArtists } from '../../../../Hooks/useAPI'
+
 
 const Header = () => {
 
@@ -10,6 +12,12 @@ const Header = () => {
     const goHome = () => {
         history.push('/home');
     }
+
+    const { data } = useAllArtists('genre');
+
+    console.log('data', data)
+
+
 
     return (
         <header className={styles.header}>
