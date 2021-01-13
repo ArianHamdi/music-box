@@ -6,3 +6,7 @@
 .icon:hover {
     fill: var(--color-tertiary);
 }
+
+.invert {
+    filter: invert(100%);
+}

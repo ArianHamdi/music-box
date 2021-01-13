@@ -1,0 +1,16 @@
+.artist {
+    background-color: var(--color-grey-2);
+    min-height: 100vh;
+    padding: 8rem 12rem;
+    position: relative;
+    z-index: 1;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    filter: blur(25px);
+    z-index: -1;
+}

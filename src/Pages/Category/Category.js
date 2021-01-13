@@ -9,8 +9,6 @@ const genresName = [
 
 const CategoryPage = () => {
 
-    console.log('category')
-
     const history = useHistory();
 
     const genreHandler = genre => {

@@ -1,11 +1,17 @@
 import styles from './Icon.module.scss'
+import classnames from 'classnames'
 
 const Icon = props => {
 
-    const { Src, width = 15, height = 15, fill = 'white', ...other } = props;
+    const { Src, size = 15, fill = 'white', invert = false, ...other } = props;
+
+    const classNames = classnames([styles.icon], {
+        [styles.invert]: invert
+    })
 
     return (
-        <Src fill={fill} width={width} height={height} className={styles.icon} {...other}/>
+        <Src fill={fill} width={size} height={size}
+            className={classNames} {...other} />
     )
 }
 

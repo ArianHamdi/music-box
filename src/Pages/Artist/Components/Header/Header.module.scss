@@ -1,0 +1,65 @@
+.header {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 17.5rem;
+        height: 17.5rem;
+        border-radius: 10rem;
+        margin-right: 2rem;
+        box-shadow: 0 1.5rem 4rem black;
+    }
+}
+
+.artist {
+    margin-right: auto;
+    margin-top: -2rem;
+
+    filter: invert(100%);
+
+    h6 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+        margin-top: 2rem;
+    }
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 8rem;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & > * {
+            margin-left: 1.5rem;
+        }
+    }
+
+    p {
+        color: black;
+        font-size: 1.2rem;
+
+        font-weight: bold;
+
+        filter: invert(100%);
+
+        span {
+            text-transform: uppercase;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.button {
+    padding: 0.6rem 2.5rem;
+}

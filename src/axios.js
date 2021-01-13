@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://api.deezer.com/'
+    baseURL: 'https://intermediary.herokuapp.com/'
 })
 
 export default instance;

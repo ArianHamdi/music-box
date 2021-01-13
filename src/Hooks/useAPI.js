@@ -23,6 +23,11 @@ const useAllArtists = genre => {
     return useQuery(['artists', id], () => api.getArtists(id))
 }
 
+const useArtistInfo = id => {
+    return useQuery(['artist', id], () => api.getArtistInfo(id))
+}
+
 export {
-    useAllArtists
+    useAllArtists,
+    useArtistInfo
 }

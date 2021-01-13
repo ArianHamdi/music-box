@@ -41,7 +41,7 @@ const Navigation = () => {
                 </ul>
                 <InputText placeholder='Search' />
                 <div className={styles.user}>
-                    <Icon Src={profile} width={20} height={20} />
+                    <Icon Src={profile} size={20} />
                     <p>Arian Hamdi</p>
                 </div>
             </div>

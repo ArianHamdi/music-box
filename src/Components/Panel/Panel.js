@@ -90,7 +90,7 @@ const Panel = () => {
                 <div className={styles.buttons}>
                     <Icon Src={Shuffle} />
                     <Icon Src={previousSong} />
-                    <Icon Src={Playing} width={20} height={20} onClick={playPauseHandler} />
+                    <Icon Src={Playing} size={20} onClick={playPauseHandler} />
                     <Icon Src={nextSong} />
                     <Icon Src={Repeat} />
                 </div>
