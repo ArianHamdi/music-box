@@ -1,6 +1,5 @@
 import styles from './Header.module.scss';
 
-import { useColor } from '../../../../Hooks/useColor'
 import { numberWithCommas } from '../../../../utilities/utilities'
 
 import Button from '../../../../Components/Button/Button'
@@ -8,9 +7,7 @@ import Icon from '../../../../Components/Icon/Icon'
 
 import favorite from '../../../../assets/SVGs/Favorite.svg'
 
-const Header = ({ name, fans, picture }) => {
-
-    const color = useColor(picture);
+const Header = ({ name, fans, picture, color }) => {
 
     return (
         <div className={styles.header}>

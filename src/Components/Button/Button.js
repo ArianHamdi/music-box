@@ -1,7 +1,7 @@
 import styles from './Button.module.scss'
 import classnames from 'classnames'
 
-const Button = ({ title, background, uppercase, className, color, invert }) => {
+const Button = ({ title, background, uppercase, className, color, invert, ...props }) => {
 
     const classNames = classnames([styles.button], {
         [styles.bg_light]: background === 'light',
@@ -10,11 +10,10 @@ const Button = ({ title, background, uppercase, className, color, invert }) => {
         [styles.invert]: invert
     }, className)
 
-    const style = invert ? {
+    const style =  {
         borderColor: color,
         color: color
-    } : null
-
+    } 
 
     // const Width = width ? { 'width': width } : null;
     // const Height = height ? { 'height': height } : null;
@@ -27,7 +26,7 @@ const Button = ({ title, background, uppercase, className, color, invert }) => {
     // )
 
     return (
-        <div className={classNames} style={style}>
+        <div className={classNames} style={style} {...props}>
             {title}
         </div>
     )

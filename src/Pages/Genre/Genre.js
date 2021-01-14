@@ -24,8 +24,6 @@ const Genre = () => {
         )
     }) : null
 
-    console.log('genre')
-
     return (
         <div className={styles.genre}>
             <h2>{genre}</h2>

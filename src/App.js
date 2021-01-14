@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 import Landing from './Pages/Landing/Landing'
 import Main from './Routes/Main'
 import Genre from './Pages/Genre/Genre'
@@ -22,6 +23,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
+        <ScrollToTop />
         <Switch>
           <Route path="/" exact component={Landing} />
           <Route path="/:page" exact component={Main} />
