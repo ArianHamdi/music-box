@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './Songs.module.scss';
 
+import { convertTime } from '../../../../utilities/utilities'
 import Button from '../../../../Components/Button/Button'
 import Icon from '../../../../Components/Icon/Icon'
 
@@ -12,14 +13,11 @@ const Songs = ({ songs, isDark }) => {
 
     const color = isDark ? '#fff' : "#000"
 
-    console.log('isDark : ', isDark);
-
     const toggleHandler = () => {
-        setToggle(prevState => !prevState);
+        setToggle(prevState => !prevState); 
     }
 
     const songsShown = toggle ? songs : songs.slice(0, 5);
-
 
     const songItems = songsShown.map((song, index) => {
         return (
@@ -29,8 +27,8 @@ const Songs = ({ songs, isDark }) => {
                 <p>{song.title}</p>
                 <p>{song.artist.name}</p>
                 <p>{song.album.title}</p>
-                <p>{song.duration}</p>
-                <Icon Src={play} size={20} fill={color} />
+                <p>{convertTime(song.duration)}</p>
+                <Icon src={play} size={20} fill={color} />
             </div>
         )
     })

@@ -1,13 +1,7 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
-import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
-import Landing from './Pages/Landing/Landing'
-import Main from './Routes/Main'
-import Genre from './Pages/Genre/Genre'
-import Artist from './Pages/Artist/Artist'
-
+import Routes from './Routes/index'
 
 const App = () => {
 
@@ -15,22 +9,15 @@ const App = () => {
     defaultOptions: {
       queries: {
         staleTime: 10 * 60 * 1000,
-        refetchOnWindowFocus: false
+        refetchOnWindowFocus: true
       }
     }
   });
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <ScrollToTop />
-        <Switch>
-          <Route path="/" exact component={Landing} />
-          <Route path="/:page" exact component={Main} />
-          <Route path="/category/:genre" component={Genre} />
-          <Route path="/artist/:id" component={Artist} />
-        </Switch>
-      </Router >
+
+      <Routes />
 
       <ReactQueryDevtools />
 

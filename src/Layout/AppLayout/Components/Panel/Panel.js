@@ -1,22 +1,24 @@
 import { useState, useRef } from 'react'
 import styles from './Panel.module.scss';
 
-import InputRange from '../../Components/InputRange/InputRange'
-import Icon from '../../Components/Icon/Icon'
+import { convertTime } from '../../../../utilities/utilities'
 
-import music from '../../assets/music/Bahram-Eshtebah-320.mp3'
+import InputRange from '../../../../Components/InputRange/InputRange'
+import Icon from '../../../../Components/Icon/Icon'
 
-import cover from '../../assets/good-mistake.jpg';
+import music from '../../../../assets/music/Bahram-Eshtebah-320.mp3'
 
-import Favorite from '../../assets/SVGs/Favorite.svg'
-import FavoriteFill from '../../assets/SVGs/Favorite-fill.svg'
-import Shuffle from '../../assets/SVGs/Shuffle.svg'
-import Repeat from '../../assets/SVGs/Repeat.svg'
-import previousSong from '../../assets/SVGs/PreviousSong.svg'
-import nextSong from '../../assets/SVGs/NextSong.svg'
-import Pause from '../../assets/SVGs/Pause.svg'
-import Play from '../../assets/SVGs/Play.svg'
-import volume from '../../assets/SVGs/Volume.svg'
+import cover from '../../../../assets/good-mistake.jpg';
+
+import Favorite from '../../../../assets/SVGs/Favorite.svg'
+import FavoriteFill from '../../../../assets/SVGs/Favorite-fill.svg'
+import Shuffle from '../../../../assets/SVGs/Shuffle.svg'
+import Repeat from '../../../../assets/SVGs/Repeat.svg'
+import previousSong from '../../../../assets/SVGs/PreviousSong.svg'
+import nextSong from '../../../../assets/SVGs/NextSong.svg'
+import Pause from '../../../../assets/SVGs/Pause.svg'
+import Play from '../../../../assets/SVGs/Play.svg'
+import volume from '../../../../assets/SVGs/Volume.svg'
 
 const Panel = () => {
 
@@ -64,17 +66,11 @@ const Panel = () => {
         setIsPlaying(prevState => !prevState)
     }
 
-    const convertTimeHandler = time => {
-        const minute = Math.floor(time / 60);
-        const second = ('0' + Math.floor(time % 60)).slice(-2);
-        return `${minute}:${second}`
-    }
-
     const Playing = isPlaying ? Pause : Play;
     const Tavorite = favorite ? FavoriteFill : Favorite;
 
-    const currentTime = convertTimeHandler(songState.currentTime)
-    const duration = convertTimeHandler(songState.duration)
+    const currentTime = convertTime(songState.currentTime)
+    const duration = convertTime(songState.duration)
 
     return (
         <div className={styles.panel}>
@@ -84,15 +80,15 @@ const Panel = () => {
                     <p className={styles.name}>Good Mistake</p>
                     <p className={styles.artist}>Bahram Nouraei</p>
                 </div>
-                <Icon Src={Tavorite} onClick={changeFavoriteHandler} />
+                <Icon src={Tavorite} onClick={changeFavoriteHandler} />
             </div>
             <div className={styles.controller}>
                 <div className={styles.buttons}>
-                    <Icon Src={Shuffle} />
-                    <Icon Src={previousSong} />
-                    <Icon Src={Playing} size={20} onClick={playPauseHandler} />
-                    <Icon Src={nextSong} />
-                    <Icon Src={Repeat} />
+                    <Icon src={Shuffle} />
+                    <Icon src={previousSong} />
+                    <Icon src={Playing} size={20} onClick={playPauseHandler} />
+                    <Icon src={nextSong} />
+                    <Icon src={Repeat} />
                 </div>
                 <div className={styles.progress}>
                     <p>{currentTime}</p>
@@ -103,7 +99,7 @@ const Panel = () => {
                 <audio ref={audioRef} src={music} onTimeUpdate={songTimerHandler} />
             </div>
             <div className={styles.volume}>
-                <Icon Src={volume} />
+                <Icon src={volume} />
                 <InputRange min='0' max='100' value={songVolume} onChange={changeSongVolumeHandler}
                     from='white' to='white' width='10rem' thumb='#161a1a' />
             </div>

@@ -28,8 +28,8 @@ const Arrow = () => {
 
     return (
         <div className={styles.buttons}>
-            <Icon Src={previous} onClick={prevItemHandler} />
-            <Icon Src={next} onClick={nextItemHandler} />
+            <Icon src={previous} onClick={prevItemHandler} />
+            <Icon src={next} onClick={nextItemHandler} />
         </div>
     )
 }

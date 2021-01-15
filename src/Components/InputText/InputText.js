@@ -8,7 +8,7 @@ const InputText = props => {
     return (
         <div className={styles.inputText}>
             <input type='text' {...props} />
-            <Icon Src={search} />
+            <Icon src={search} />
         </div>
     )
 };

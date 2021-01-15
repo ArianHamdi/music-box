@@ -30,7 +30,7 @@ const Productive = () => {
                 <img src={image.src} alt='song album' />
                 <p>{image.name}</p>
                 <div>
-                    <Icon Src={favorite} width={10} height={10} />
+                    <Icon src={favorite} width={10} height={10} />
                     <p>{numberWithCommas(image.like)}</p>
                 </div>
             </div>

@@ -20,7 +20,7 @@ const Header = ({ name, fans, picture, color }) => {
                 <div className={styles.panel}>
                     <div >
                         <Button className={styles.button} title='shuffle play' color={color} uppercase invert />
-                        <Icon Src={favorite} size={20} fill={color} invert />
+                        <Icon src={favorite} size={20} fill={color} invert />
                     </div>
                     <p style={{ color }}>{numberWithCommas(fans)}<span>folowers</span></p>
                 </div>
