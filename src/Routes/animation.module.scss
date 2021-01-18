@@ -1,0 +1,12 @@
+.switch {
+    position: relative;
+
+    > div {
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.atActive{
+    transform: scale(2);
+}

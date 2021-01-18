@@ -1,14 +1,13 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import styles from './Panel.module.scss';
+
+import { usePlaylist, useIndexUpdate } from '../../../../Contexts/playlist-context'
+import { usePrevious } from '../../../../Hooks/usePrevius'
 
 import { convertTime } from '../../../../utilities/utilities'
 
 import InputRange from '../../../../Components/InputRange/InputRange'
 import Icon from '../../../../Components/Icon/Icon'
-
-import music from '../../../../assets/music/Bahram-Eshtebah-320.mp3'
-
-import cover from '../../../../assets/good-mistake.jpg';
 
 import Favorite from '../../../../assets/SVGs/Favorite.svg'
 import FavoriteFill from '../../../../assets/SVGs/Favorite-fill.svg'
@@ -22,8 +21,12 @@ import volume from '../../../../assets/SVGs/Volume.svg'
 
 const Panel = () => {
 
-    const audioRef = useRef(null);
+    const playlist = usePlaylist();
+    const updateIndex = useIndexUpdate();
+    const prevPlaylist = usePrevious(playlist);
 
+    // const [index, setIndex] = useState(0);
+    const audioRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [favorite, setFavorite] = useState(false);
     const [progressPercentage, setProgressPercentage] = useState(0)
@@ -33,8 +36,25 @@ const Panel = () => {
         duration: 0,
     })
 
-    const changeSongVolumeHandler = event => {
+    useEffect(() => {
+        if (playlist?.count !== prevPlaylist?.count && playlist?.count !== 0) {
+            setIsPlaying(true);
+            const playPromise = audioRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => { })
+                    .catch(() => { })
+            }
+        }
+    }, [playlist, isPlaying])
 
+    if (!playlist) return null;
+
+    const endSongHandler = () => {
+        updateIndex();
+    }
+
+    const changeSongVolumeHandler = event => {
         const volume = event.target.value
         audioRef.current.volume = volume / 100;
         setSongVolume(volume)
@@ -48,9 +68,9 @@ const Panel = () => {
     }
 
     const songTimerHandler = event => {
-        const currentTime = Math.round(event.target.currentTime);
+        const currentTime = event.target.currentTime
         const duration = event.target.duration;
-        const progressPercentage = Math.round(currentTime * 100 / duration);
+        const progressPercentage = Math.ceil(currentTime * 100 / duration) || 0;
         setSongState({ currentTime, duration });
         setProgressPercentage(progressPercentage)
 
@@ -62,7 +82,12 @@ const Panel = () => {
 
     const playPauseHandler = () => {
         const audio = audioRef.current;
-        isPlaying ? audio.pause() : audio.play();
+        const playPromise = isPlaying ? audio.pause() : audio.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+
+            })
+        }
         setIsPlaying(prevState => !prevState)
     }
 
@@ -72,13 +97,15 @@ const Panel = () => {
     const currentTime = convertTime(songState.currentTime)
     const duration = convertTime(songState.duration)
 
+    const info = playlist.songs[playlist.index];
+
     return (
         <div className={styles.panel}>
             <div className={styles.music}>
-                <img src={cover} alt="music cover" />
+                <img src={info.album.cover_small} alt="music cover" />
                 <div>
-                    <p className={styles.name}>Good Mistake</p>
-                    <p className={styles.artist}>Bahram Nouraei</p>
+                    <p className={styles.name}>{info.title}</p>
+                    <p className={styles.artist}>{info.artist.name}</p>
                 </div>
                 <Icon src={Tavorite} onClick={changeFavoriteHandler} />
             </div>
@@ -96,7 +123,8 @@ const Panel = () => {
                         from='#9b2def' to='#053b64' width='35rem' />
                     <p>{duration}</p>
                 </div>
-                <audio ref={audioRef} src={music} onTimeUpdate={songTimerHandler} />
+                <audio ref={audioRef} src={info.preview} onTimeUpdate={songTimerHandler} onEnded={endSongHandler}
+                    onLoadedMetadata={songTimerHandler} />
             </div>
             <div className={styles.volume}>
                 <Icon src={volume} />

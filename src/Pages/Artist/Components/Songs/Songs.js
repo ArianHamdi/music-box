@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styles from './Songs.module.scss';
 
+import { usePlaylistUpdate } from '../../../../Contexts/playlist-context'
+
 import { convertTime } from '../../../../utilities/utilities'
 import Button from '../../../../Components/Button/Button'
 import Icon from '../../../../Components/Icon/Icon'
@@ -9,17 +11,22 @@ import play from '../../../../assets/SVGs/Play.svg'
 
 const Songs = ({ songs, isDark }) => {
 
+
     const [toggle, setToggle] = useState(false);
+
+    const setPlaylist = usePlaylistUpdate();
+
+    const playSong = index => {
+        setPlaylist(songs, index)
+    }
+
+    const toggleHandler = () => {
+        setToggle(prevState => !prevState);
+    }
 
     const color = isDark ? '#fff' : "#000"
 
-    const toggleHandler = () => {
-        setToggle(prevState => !prevState); 
-    }
-
-    const songsShown = toggle ? songs : songs.slice(0, 5);
-
-    const songItems = songsShown.map((song, index) => {
+    const songItems = songs.map((song, index) => {
         return (
             <div className={styles.song} style={{ color }} key={index}>
                 <h6>{index + 1}</h6>
@@ -28,10 +35,12 @@ const Songs = ({ songs, isDark }) => {
                 <p>{song.artist.name}</p>
                 <p>{song.album.title}</p>
                 <p>{convertTime(song.duration)}</p>
-                <Icon src={play} size={20} fill={color} />
+                <Icon src={play} size={20} fill={color} onClick={() => playSong(index)} />
             </div>
         )
     })
+
+    const songsShown = toggle ? songItems : songItems.slice(0, 5);
 
     const title = toggle ? 'show 5 less' : 'show 5 more';
 

@@ -1,5 +1,5 @@
-import { Route } from 'react-router-dom'
-import AppLayout from './AppLayout/AppLayout'
+import { Route } from 'react-router-dom';
+import AppLayout from './AppLayout/AppLayout';
 
 const AppLayoutRoute = ({ component: Component, ...rest }) => {
     return (

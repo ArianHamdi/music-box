@@ -1,5 +1,7 @@
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import PlaylistProvider from './Contexts/playlist-context'
+import InitialPlaylist from './Components/InitialPlaylist/InitialPlaylist';
 
 import Routes from './Routes/index'
 
@@ -16,8 +18,15 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <PlaylistProvider>
 
-      <Routes />
+        <InitialPlaylist>
+
+          <Routes />
+
+        </InitialPlaylist>
+
+      </PlaylistProvider>
 
       <ReactQueryDevtools />
 
