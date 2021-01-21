@@ -12,6 +12,7 @@
     "fast-average-color": "^6.3.0",
     "node-sass": "4.14.1",
     "react": "^17.0.1",
+    "react-app-rewired": "^2.1.8",
     "react-dom": "^17.0.1",
     "react-query": "^3.5.11",
     "react-router-dom": "^5.2.0",
@@ -19,12 +20,13 @@
     "react-scripts": "4.0.1",
     "react-transition-group": "^4.4.1",
     "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "webpack-merge": "^5.7.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "set \"CI=false\" && react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -24,9 +24,9 @@ const Productive = () => {
         { src: morningRush, name: 'Morning Rush', like: 291818 },
     ]
 
-    const items = images.map(image => {
+    const items = images.map((image, index) => {
         return (
-            <div className={styles.like}>
+            <div className={styles.like} key={index}>
                 <img src={image.src} alt='song album' />
                 <p>{image.name}</p>
                 <div>

@@ -8,8 +8,6 @@ import Releases from './Components/Releases'
 
 const HomePage = () => {
 
-    console.log('home')
-
     return (
         <section className={styles.home}>
             <Browse />

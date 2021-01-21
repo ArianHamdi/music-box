@@ -16,7 +16,7 @@ const CategoryPage = () => {
     }
 
     const genresAlbum = genresImage.default.map((image, index) => {
-        return <img src={image.default} alt='song genres' onClick={() => genreHandler(genresName[index])} />
+        return <img key={index} src={image.default} alt='song genres' onClick={() => genreHandler(genresName[index])} />
     })
 
     return (

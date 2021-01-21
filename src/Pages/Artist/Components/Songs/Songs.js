@@ -56,7 +56,7 @@ const Songs = ({ songs, isDark }) => {
                 <p>time</p>
                 <p>icon</p>
             </div>
-            {songItems}
+            {songsShown}
             <Button className={styles.button} title={title} uppercase onClick={toggleHandler} color={color} />
         </div>
     )

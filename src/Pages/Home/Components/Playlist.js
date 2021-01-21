@@ -23,9 +23,9 @@ const Playlist = () => {
         { src: rockabilly, name: 'Rockabilly', like: 82127 },
     ]
 
-    const items = images.map(image => {
+    const items = images.map((image, index) => {
         return (
-            <div className={styles.like}>
+            <div className={styles.like} key={index}>
                 <img src={image.src} alt='song album' />
                 <p>{image.name}</p>
                 <div>

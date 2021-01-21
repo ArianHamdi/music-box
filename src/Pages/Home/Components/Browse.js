@@ -12,9 +12,9 @@ const Browse = () => {
 
     const images = [hipHop, pop, rock, country, electro, indie];
 
-    const items = images.map(image => {
+    const items = images.map((image, index) => {
         return (
-            <img src={image} className={styles.item} />
+            <img src={image} className={styles.item} key={index} />
         )
     })
 

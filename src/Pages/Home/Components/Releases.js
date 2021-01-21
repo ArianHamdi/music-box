@@ -19,9 +19,9 @@ const Releases = () => {
         { src: hef, name: 'HEF', artist: 'Koud' },
     ]
 
-    const items = images.map(image => {
+    const items = images.map((image, index) => {
         return (
-            <div className={styles.song}>
+            <div className={styles.song} key={index}>
                 <img src={image.src} alt='song album' />
                 <p>{image.name}</p>
                 <p>{image.artist}</p>

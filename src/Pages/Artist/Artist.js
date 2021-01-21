@@ -19,13 +19,15 @@ const Artist = () => {
 
     const { color, isDark } = useColor(picture);
 
+    console.log('songs : ', data?.songs);
+
     return (
         <section className={styles.artist} >
             {picture && <>
                 <img className={styles.background} src={picture} alt="artist" />
                 <Header name={data?.name} fans={data?.fans} picture={picture} color={color} />
             </>}
-            {data && <Songs songs={data.songs} color={color} isDark={isDark}/>}
+            {data && <Songs songs={data.songs} color={color} isDark={isDark} />}
         </section>
     )
 

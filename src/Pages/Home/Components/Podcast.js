@@ -11,8 +11,8 @@ import games from '../../../assets/GAMES.png'
 const Podcast = () => {
     const images = [stories, educational, music, lifeStyle, business, games];
 
-    const items = images.map(image => {
-        return <img src={image} alt="podcast" className={styles.item} />
+    const items = images.map((image, index) => {
+        return <img key={index} src={image} alt="podcast" className={styles.item} />
     })
 
     return (
