@@ -20,7 +20,7 @@ const genreID = {
 
 const useAllArtists = genre => {
     const id = genreID[genre]
-    return useQuery(['artists', id], () => api.getArtists(id))
+    return useQuery(['artists', id], api.getArtists)
 }
 
 const useArtistInfo = id => {

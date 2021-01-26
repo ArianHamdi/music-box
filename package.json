@@ -10,6 +10,7 @@
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "fast-average-color": "^6.3.0",
+    "include-media": "^1.4.9",
     "node-sass": "4.14.1",
     "react": "^17.0.1",
     "react-app-rewired": "^2.1.8",
@@ -19,9 +20,9 @@
     "react-router-transition": "^2.0.0",
     "react-scripts": "4.0.1",
     "react-transition-group": "^4.4.1",
+    "sass-resources-loader": "^2.1.1",
     "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4",
-    "webpack-merge": "^5.7.3"
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-app-rewired start",

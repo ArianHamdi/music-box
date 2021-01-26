@@ -11,7 +11,7 @@
 
 .song {
     display: grid;
-    grid-template-columns: 2rem 3rem repeat(2, minmax(10rem, 1fr)) minmax(15rem,1fr) repeat(2, 3rem);
+    grid-template-columns: 2rem 3rem repeat(2, minmax(10rem, 1fr)) minmax(15rem, 1fr) repeat(2, 3rem);
     gap: 1rem;
     align-items: center;
     margin: 1rem 0;

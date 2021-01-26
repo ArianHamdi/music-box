@@ -1,12 +1,15 @@
 .genre {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    column-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    column-gap: 3rem;
     row-gap: 7rem;
-
-    padding: 10rem;
+    padding: 6vw;
     min-height: 100vh;
     background-color: var(--color-dark-2);
+
+    @include media("<lg",">sm") {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
 
     h2 {
         grid-column: 1/-1;
@@ -17,12 +20,13 @@
 
     figure {
         position: relative;
-        border-radius: 10rem;
+        border-radius: 20rem;
         overflow: hidden;
         box-shadow: 8px 10px 2rem black;
 
         img {
             display: block;
+            border-radius: 20rem;
             width: 100%;
             cursor: pointer;
             transition: all 0.2s;

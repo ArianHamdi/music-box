@@ -1,6 +1,7 @@
 import axios from './axios';
 
-const getArtists = async genre => {
+const getArtists = async ({ queryKey }) => {
+    const [_, genre] = queryKey;
     const { data } = await axios.get(`/genre/${genre}/artists`);
     return data;
 }
