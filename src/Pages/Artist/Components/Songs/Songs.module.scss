@@ -1,33 +1,75 @@
-.songs {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-
-    h4 {
-        font-size: 1.6rem;
-        margin: 1rem 0;
-    }
-}
-
 .song {
     display: grid;
-    grid-template-columns: 2rem 3rem repeat(2, minmax(10rem, 1fr)) minmax(15rem, 1fr) repeat(2, 3rem);
-    gap: 1rem;
+    grid-auto-flow: dense;
+    column-gap: 2rem;
     align-items: center;
-    margin: 1rem 0;
+    grid-template-columns:
+        [index-start] 1rem [index-end cover-start] 5rem [cover-end title-start] minmax(20rem, min-content)
+        [title-end artist-start] minmax(10rem, 1fr) [artist-end album-start] minmax(10rem, 2fr)
+        [album-end duration-start] 3rem [duration-end play-start] 2rem[play-end];
 
-    img {
-        width: 3rem;
-        height: 3rem;
-        border-radius: 0.5rem;
-    }
-
-    h6 {
-        font-size: 1.5rem;
+    @include media("<md") {
+        grid-template-columns: [cover-start]7rem[cover-end title-start duration-start]minmax(min-content, 1fr) [title-end duration-end play-start] 2rem [play-end];
+        grid-template-rows: repeat(2, 1fr);
     }
 
     p {
         font-size: 1.4rem;
+        font-weight: bold;
+
+        @include media("<lg") {
+            font-size: 1.6rem;
+        }
+
+        @include media("<md") {
+            font-size: 2rem;
+        }
+    }
+}
+
+.songs {
+    display: grid;
+    row-gap: 2rem;
+}
+
+.index {
+    grid-column: index-start / index-end;
+    font-size: 1.5rem;
+}
+.cover {
+    grid-column: cover-start / cover-end;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 5px;
+
+    @include media("<md") {
+        width: 6rem;
+        height: 6rem;
+        grid-row: 1 / 3;
+    }
+}
+.title {
+    grid-column: title-start / title-end;
+}
+.artist {
+    grid-column: artist-start / artist-end;
+    justify-self: center;
+}
+.album {
+    grid-column: album-start / album-end;
+}
+.duration {
+    grid-column: duration-start / duration-end;
+
+    @include media("<md") {
+        grid-row: 2 / 3;
+    }
+}
+.play {
+    grid-column: play-start / play-end;
+
+    @include media("<md") {
+        grid-row: 1 / 3;
     }
 }
 
@@ -35,4 +77,33 @@
     align-self: center;
     margin: 1rem 0;
     padding: 0.5rem 1rem;
+}
+
+.winking {
+    animation: wink 2s infinite ease;
+}
+
+.rotating {
+    animation: rotate 2s infinite cubic-bezier(0, 0, 1, 1);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes wink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

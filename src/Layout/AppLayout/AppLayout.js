@@ -3,9 +3,9 @@ import Panel from './Components/Panel/Panel'
 
 const AppLayout = ({ children }) => (
     <>
-        <Navigation />
+        {/* <Navigation /> */}
         {children}
-        <Panel />
+        {/* <Panel /> */}
     </>
 )
 

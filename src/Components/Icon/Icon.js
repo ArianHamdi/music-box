@@ -3,9 +3,9 @@ import classnames from 'classnames'
 
 const Icon = props => {
 
-    const { src: Svg, size = 15, fill = 'white', invert = false, ...other } = props;
+    const { src: Svg, size = 15, fill = 'white', invert = false, className = null, ...other } = props;
 
-    const classNames = classnames([styles.icon], {
+    const classNames = classnames([styles.icon], className, {
         [styles.invert]: invert
     })
 

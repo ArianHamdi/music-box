@@ -14,9 +14,6 @@ html {
   @include media("<md") {
     font-size: 50%;
   }
-  @include media("<sm") {
-    font-size: 43.75%;
-  }
 }
 
 body {

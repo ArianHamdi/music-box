@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import styles from './Songs.module.scss';
 
 import { usePlaylistUpdate } from '../../../../Contexts/playlist-context'
 
+import { useDimentions } from '../../../../Hooks/useDimentions'
 import { convertTime } from '../../../../utilities/utilities'
+import { shorten } from '../../../../utilities/utilities'
 import Button from '../../../../Components/Button/Button'
 import Icon from '../../../../Components/Icon/Icon'
 
@@ -11,6 +13,7 @@ import play from '../../../../assets/SVGs/Play.svg'
 
 const Songs = ({ songs, isDark }) => {
 
+    const color = isDark ? '#fff' : "#000"
 
     const [toggle, setToggle] = useState(false);
 
@@ -24,18 +27,24 @@ const Songs = ({ songs, isDark }) => {
         setToggle(prevState => !prevState);
     }
 
-    const color = isDark ? '#fff' : "#000"
+    const { width } = useDimentions();
 
     const songItems = songs.map((song, index) => {
+
+        // remove some decsriptions in small screen
+        const desktopView = width >= 768 ? <>
+            <h6 className={styles.index}>{index + 1}</h6>
+            <p className={styles.artist}>{song.artist.name}</p>
+            <p className={styles.album}>{song.album.title}</p>
+        </> : null
+
         return (
-            <div className={styles.song} style={{ color }} key={index}>
-                <h6>{index + 1}</h6>
-                <img src={song.album.cover_small} alt='music cover' />
-                <p>{song.title}</p>
-                <p>{song.artist.name}</p>
-                <p>{song.album.title}</p>
-                <p>{convertTime(song.duration)}</p>
-                <Icon src={play} size={20} fill={color} onClick={() => playSong(index)} />
+            <div className={styles.song} key={index}>
+                <img className={styles.cover} src={song.album.cover_small} alt='music cover' />
+                <p className={styles.title}>{shorten(song.title, width)}</p>
+                <p className={styles.duration}>{convertTime(song.duration)}</p>
+                <Icon className={styles.play} src={play} size={20} fill={color} onClick={() => playSong(index)} />
+                {desktopView}
             </div>
         )
     })
@@ -46,18 +55,7 @@ const Songs = ({ songs, isDark }) => {
 
     return (
         <div className={styles.songs} style={{ color }}>
-            <h4>Papular songs</h4>
-            <div className={styles.song}>
-                <h6>#</h6>
-                <p>cover</p>
-                <p>title</p>
-                <p>artist</p>
-                <p>album</p>
-                <p>time</p>
-                <p>icon</p>
-            </div>
             {songsShown}
-            <Button className={styles.button} title={title} uppercase onClick={toggleHandler} color={color} />
         </div>
     )
 }

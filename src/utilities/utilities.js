@@ -3,6 +3,7 @@ const numberWithCommas = number => {
 }
 
 const convertTime = time => {
+
     if (isNaN(time)) {
         return '0:00';
     }
@@ -11,7 +12,30 @@ const convertTime = time => {
     return `${minute}:${second}`;
 }
 
+const shorten = (word, size) => {
+    let length;
+    if (size < 576) {
+        length = 25
+    }
+    else if (size < 768) {
+        length = 45
+    }
+    else if (size < 992) {
+        length = 60;
+    }
+    else {
+        length = 80
+    }
+
+    if (length > word.length) return word;
+
+    const shortenWord = word.slice(0, length) + ' ...';
+
+    return shortenWord;
+}
+
 export {
     convertTime,
-    numberWithCommas
+    numberWithCommas,
+    shorten
 }
