@@ -1,5 +1,4 @@
-import { useReducer, useContext, createContext } from 'react'
-import { useEffect } from 'react/cjs/react.development';
+import { useEffect, useReducer, useContext, createContext } from 'react'
 import { shuffle } from '../utilities/utilities'
 
 const PlaylistStateContext = createContext();
@@ -105,8 +104,8 @@ const useSong = () => {
 
     useEffect(() => {
         const unloadHandler = () => {
-            //save last music to local storage
-            const playlist = JSON.stringify({ artist, index })
+            // save last music to local storage
+            const playlist = JSON.stringify({ artist, index });
             localStorage.setItem('playlist', playlist)
         }
         window.addEventListener('unload', unloadHandler)
