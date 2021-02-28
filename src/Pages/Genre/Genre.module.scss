@@ -1,13 +1,14 @@
 .genre {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-template-rows: 5rem;
     column-gap: 3rem;
     row-gap: 7rem;
     padding: 6vw;
     min-height: 100vh;
     background-color: var(--color-dark-2);
 
-    @include media("<lg",">sm") {
+    @include media("<lg", ">sm") {
         grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     }
 
@@ -19,6 +20,7 @@
     }
 
     figure {
+        @include no-select;
         position: relative;
         border-radius: 20rem;
         overflow: hidden;
@@ -31,12 +33,6 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-
-        &:hover img {
-            transform: scale(1.1);
-            filter: blur(5px);
-        }
-
         figcaption {
             width: 80%;
             position: absolute;
@@ -51,7 +47,7 @@
         }
 
         &:hover figcaption {
-            top: 50%;
+            transform: translate(-50%,12rem);
         }
     }
 }

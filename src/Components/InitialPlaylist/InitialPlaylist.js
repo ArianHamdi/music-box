@@ -1,18 +1,12 @@
 import { useEffect } from 'react'
-import { useInitilizePlaylist } from '../../Contexts/playlist-context';
-import { useArtistInfo } from '../../Hooks/useAPI'
+import { usePlaylistDispatch } from '../../Contexts/playlist-context';
+import { usePrefetchArtist } from '../../Hooks/useAPI';
 
-const InitialPlaylist = ({ children }) => {
+const InitialPlaylist = () => {
 
-    const setPlaylist = useInitilizePlaylist();
+    usePrefetchArtist();
 
-    const { data } = useArtistInfo(13);
-
-    useEffect(() => {
-        if (data) setPlaylist(data.songs, 0, 0)
-    })
-
-    return children;
+    return null;
 }
 
 export default InitialPlaylist;

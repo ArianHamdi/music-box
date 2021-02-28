@@ -14,21 +14,13 @@
     background-color: rgba(#3a3b3e, 0.95);
     z-index: 10;
 }
-// .panel::before {
-//     content: "";
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     opacity: 0.5;
-//     z-index: 15;
-// }
 
 .controller {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 40%;
+    width: 50%;
     // background-color: red;
     height: 100%;
 }
@@ -38,13 +30,21 @@
     align-items: center;
     justify-content: space-around;
     margin-top: 0.5rem;
-    width: 60%;
+    width: 30rem;
+
+    @include media("<lg"){
+        width: 28rem;
+    } 
 }
 
 .progress {
     display: flex;
     font-size: 1.1rem;
-    // color: var(--color-grey-1);
+    color: #e7e7e7;
+
+    p {
+        margin: 0 0.5rem;
+    }
 }
 
 .music {

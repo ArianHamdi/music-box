@@ -4,6 +4,7 @@
     align-items: center;
     margin: 4rem;
 
+
     @include media("<md") {
         flex-direction: column;
     }
@@ -81,7 +82,7 @@
 .followers {
     font-size: 1.4rem;
 
-    @include media("<md"){
+    @include media("<md") {
         font-size: 1.8rem;
         margin-top: 1.5rem;
     }

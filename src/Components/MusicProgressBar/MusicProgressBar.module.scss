@@ -1,0 +1,42 @@
+.container {
+    padding: 5px 0;
+    cursor: pointer;
+
+    &:hover .progressFilled::after {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.progress {
+    height: 3px;
+    border-radius: 1rem;
+    width: 40rem;
+    @include media("<md") {
+        width: 35rem;
+    }
+    background-color: var(--color-grey-1);
+}
+
+.progressFilled {
+    position: relative;
+    height: 100%;
+    background-image: linear-gradient(to right, var(--color-primary), var(--color-tertiary));
+    width: 0;
+    max-width: 100%;
+    border-radius: 1rem;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate3d(-50%, -50%, 0);
+        width: 0px;
+        height: 0px;
+        border-radius: 100rem;
+        background-color: var(--color-secondary);
+        transition: all 0.2s ease-out;
+    }
+}

@@ -15,12 +15,12 @@ const Routes = () => (
     <Router>
         <ScrollToTop />
         <Switch >
-            <Route path='/' exact component={Landing} />
-            <AppLayoutRoute path='/home' component={Home} />
+            <AppLayoutRoute path='/' exact component={Home} />
             <AppLayoutRoute path='/category' exact component={Category} />
             <AppLayoutRoute path='/category/:genre' component={Genre} />
             <AppLayoutRoute path='/library' component={Library} />
             <AppLayoutRoute path='/artist/:id' component={Artist} />
+            <Route path='/about' exact component={Landing} />
         </Switch>
     </Router >
 )

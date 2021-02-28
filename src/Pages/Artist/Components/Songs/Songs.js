@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import styles from './Songs.module.scss';
 
-import { usePlaylistUpdate } from '../../../../Contexts/playlist-context'
+import { usePlaylistDispatch } from '../../../../Contexts/playlist-context'
 
 import { useDimentions } from '../../../../Hooks/useDimentions'
 import { convertTime } from '../../../../utilities/utilities'
@@ -11,16 +11,19 @@ import Icon from '../../../../Components/Icon/Icon'
 
 import play from '../../../../assets/SVGs/Play.svg'
 
-const Songs = ({ songs, isDark }) => {
+const Songs = ({ artistID, playlist, isDark }) => {
+
+    console.log('artist ID is : ', artistID);
+
+    const dispatch = usePlaylistDispatch();
 
     const color = isDark ? '#fff' : "#000"
 
     const [toggle, setToggle] = useState(false);
 
-    const setPlaylist = usePlaylistUpdate();
-
     const playSong = index => {
-        setPlaylist(songs, index)
+        const payload = { artist: artistID, playlist, index }
+        dispatch({ type: 'playlist', payload })
     }
 
     const toggleHandler = () => {
@@ -29,7 +32,7 @@ const Songs = ({ songs, isDark }) => {
 
     const { width } = useDimentions();
 
-    const songItems = songs.map((song, index) => {
+    const songItems = playlist.map((song, index) => {
 
         // remove some decsriptions in small screen
         const desktopView = width >= 768 ? <>

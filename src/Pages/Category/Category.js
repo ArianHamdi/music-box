@@ -15,6 +15,8 @@ const CategoryPage = () => {
         history.push(`/category/${genre}`);
     }
 
+    console.log('genre');
+    
     const genresAlbum = genresImage.default.map((image, index) => {
         return <img key={index} src={image.default} alt='song genres' onClick={() => genreHandler(genresName[index])} />
     })

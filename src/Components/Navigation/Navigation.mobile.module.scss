@@ -1,0 +1,29 @@
+.navigation {
+    height: 8rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: var(--color-grey-2);
+    z-index: 50;
+
+    div {
+        @include no-select;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+
+        h5 {
+            font-size: 1.6rem;
+            color: var(--color-grey-1);
+            margin-top: 5px;
+        }
+
+        &:hover svg {
+            fill: var(--color-tertiary);
+        }
+    }
+}

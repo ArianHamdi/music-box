@@ -1,11 +1,11 @@
-import Navigation from './Components/Navigation/Naivgation'
-import Panel from './Components/Panel/Panel'
+import Navigation from '../../Components/Navigation/Navigation'
+import MusicPlayer from '../../Components/MusicPlayer/MusicPlayer'
 
 const AppLayout = ({ children }) => (
     <>
-        {/* <Navigation /> */}
+        <Navigation />
         {children}
-        {/* <Panel /> */}
+        <MusicPlayer />
     </>
 )
 

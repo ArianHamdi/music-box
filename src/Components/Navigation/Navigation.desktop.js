@@ -1,17 +1,17 @@
-import styles from './Naivgation.module.scss';
+import styles from './Navigation.desktop.module.scss';
 import { NavLink, useLocation } from 'react-router-dom'
 import classnames from 'classnames'
 
-import Navbar from '../../../../Components/Navbar/Nabbar'
-import InputText from '../../../../Components/InputText/InputText'
+import Navbar from '../Navbar/Nabbar'
+import InputText from '../InputText/InputText'
 
-import Icon from '../../../../Components/Icon/Icon'
+import Icon from '../Icon/Icon'
 
-import profile from '../../../../assets/SVGs/Profile.svg'
+import profile from '../../assets/SVGs/Profile.svg'
 
-import logo from '../../../../assets/Logo.png'
+import logo from '../../assets/Logo.png'
 
-const Navigation = () => {
+const NaivgationDesktop = () => {
 
     const location = useLocation();
     const path = location.pathname
@@ -23,6 +23,8 @@ const Navigation = () => {
     const navLinkContainerStyle = (...routes) => {
 
         let activeStyle;
+
+        //change it to some method; !!important
 
         for (let i = 0; i < routes.length; i++) {
             if (path.includes(routes[i])) {
@@ -41,8 +43,8 @@ const Navigation = () => {
             <div className={styles.navigation}>
                 <img src={logo} alt="logo" />
                 <ul>
-                    <li className={navLinkContainerStyle('home')}>
-                        <NavLink className={styles.navLink} activeClassName={styles.navLinkActive} to='/home'>Home</NavLink>
+                    <li className={navLinkContainerStyle('/home')}>
+                        <NavLink className={styles.navLink} activeClassName={styles.navLinkActive} to='/'>Home</NavLink>
                     </li>
                     <li className={navLinkContainerStyle('category', 'artist')}>
                         <NavLink className={styles.navLink} activeClassName={styles.navLinkActive} to='/category' isActive={isRouteActive}>Category</NavLink>
@@ -58,4 +60,4 @@ const Navigation = () => {
     )
 }
 
-export default Navigation;
+export default NaivgationDesktop;

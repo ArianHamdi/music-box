@@ -1,0 +1,69 @@
+.container {
+    position: fixed;
+    bottom: 9rem;
+    left: 0;
+    right: 0;
+    width: 95%;
+    margin: 0 auto;
+    z-index: 100;
+    backdrop-filter: blur(30px);
+    border-radius: 1rem;
+    padding-bottom: 4px;
+    height: 9.4rem;
+    overflow: hidden;
+    transition: all 0.8s 0.4s;
+}
+
+.musicPlayer {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    height: 100%;
+
+    margin-left: auto;
+
+    p {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--color-white-1);
+    }
+}
+
+.song {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 5rem;
+    margin-left: 1rem;
+    margin-right: auto;
+}
+
+.cover {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 1rem;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    width: 15rem;
+    height: 100%;
+    align-items: center;
+    li:nth-child(1) {
+        display: none;
+    }
+    li:nth-child(5) {
+        display: none;
+    }
+}
+
+.full {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    padding: 4rem;
+}
+
+// animation

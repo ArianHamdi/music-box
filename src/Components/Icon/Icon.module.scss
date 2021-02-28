@@ -1,10 +1,11 @@
 .icon {
-    cursor: pointer;
+    @include no-select;
     transition: fill 0.2s;
+    cursor: pointer;
 }
 
 .icon:hover {
-    fill: var(--color-secondary);
+    fill: var(--color-tertiary);
 }
 
 .invert {

@@ -1,5 +1,8 @@
+import breakpoints from '../Constant/breakpoints'
+
 const numberWithCommas = number => {
-    return number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    // return number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    return number;
 }
 
 const convertTime = time => {
@@ -14,13 +17,13 @@ const convertTime = time => {
 
 const shorten = (word, size) => {
     let length;
-    if (size < 576) {
+    if (size < breakpoints.sm) {
         length = 25
     }
-    else if (size < 768) {
+    else if (size < breakpoints.md) {
         length = 45
     }
-    else if (size < 992) {
+    else if (size < breakpoints.lg) {
         length = 60;
     }
     else {
@@ -34,8 +37,15 @@ const shorten = (word, size) => {
     return shortenWord;
 }
 
+const shuffle = array => {
+    const shuffled = [...array];
+    shuffled.sort(() => Math.random() - 0.5);
+    return shuffled;
+}
+
 export {
     convertTime,
     numberWithCommas,
-    shorten
+    shorten,
+    shuffle
 }

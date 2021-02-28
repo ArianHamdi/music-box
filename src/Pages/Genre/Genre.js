@@ -14,11 +14,10 @@ const Genre = () => {
         history.push(`/artist/${id}`, { picture });
     }
 
-
-    const artists = !isLoading ? data.data.map(artist => {
+    const artists = !isLoading ? data?.data.map(artist => {
         return (
-            <figure key={artist.id} onClick={() => artistHandler(artist.id, artist.picture_xl)}>
-                <img src={artist.picture_xl} alt="artist" />
+            <figure key={artist.id} onClick={() => artistHandler(artist.id, artist.picture_medium)}>
+                <img src={artist.picture_medium} alt="artist" />
                 <figcaption>{artist.name}</figcaption>
             </figure>
         )
