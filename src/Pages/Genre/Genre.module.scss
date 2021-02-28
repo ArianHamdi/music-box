@@ -47,7 +47,12 @@
         }
 
         &:hover figcaption {
-            transform: translate(-50%,12rem);
+            transform: translate(-50%, 12rem);
+        }
+
+        &:hover img {
+            transform: scale(1.1);
+            filter: blur((5px));
         }
     }
 }
