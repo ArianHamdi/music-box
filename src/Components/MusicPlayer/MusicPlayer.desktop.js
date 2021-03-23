@@ -29,10 +29,10 @@ const MusicPlayerDesktop = forwardRef((props, progressRef) => {
     return (
         <div className={styles.panel}>
             <div className={styles.music}>
-                <img src={song.album.cover_small} alt="music cover" />
+                <img src={song.cover} alt="music cover" />
                 <div>
                     <p className={styles.name}>{song.title}</p>
-                    <p className={styles.artist}>{song.artist.name}</p>
+                    <p className={styles.artist}>{song.artist_name}</p>
                 </div>
             </div>
             <div className={styles.controller}>

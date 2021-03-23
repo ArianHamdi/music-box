@@ -1,0 +1,35 @@
+.albums {
+    background-color: red;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-template-rows: max-content;
+    grid-auto-rows: 0;
+    overflow: hidden;
+    column-gap: 2rem;
+    // row-gap: 2rem;
+    justify-items: center;
+
+    margin: 5rem 0;
+
+    @include media("<lg") {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+
+    @include media("<sm") {
+        grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    }
+}
+
+.button {
+    width: 12rem;
+    height: 4rem;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+    outline: none;
+    margin: auto;
+    font-weight: bold;
+    font-size: 1.4rem;
+    cursor: pointer;
+}

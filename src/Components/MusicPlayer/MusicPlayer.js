@@ -6,8 +6,8 @@ import MusicPlayerMobile from './MusicPlayer.mobile'
 import { useSong, usePlaylistDispatch } from '../../Contexts/playlist-context'
 import { usePrevious } from '../../Hooks/usePrevius'
 import colors from '../../Constant/colors'
-import Pause from '../../assets/SVGs/Pause.svg'
-import Play from '../../assets/SVGs/Play.svg'
+import Pause from '../../assets/SVGs/pause.svg'
+import Play from '../../assets/SVGs/play.svg'
 
 const MusicPlayer = () => {
 
@@ -45,6 +45,7 @@ const MusicPlayer = () => {
         }
     }, [count, song?.id]);
 
+    if (!song) return null;
 
     const nextSong = () => {
         dispatch({ type: 'next' })
@@ -103,8 +104,6 @@ const MusicPlayer = () => {
     const playing = isPlaying ? Pause : Play;
     const shuffleActive = isShuffle ? colors.tertiary : 'white'
     const repeatActive = isRepeat ? colors.tertiary : 'white'
-
-    if (!song) return null;
 
     return (
         <>

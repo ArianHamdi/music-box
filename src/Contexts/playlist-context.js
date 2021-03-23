@@ -16,8 +16,6 @@ const initialState = {
 
 const playlistReducer = (state, action) => {
     const { type, payload } = action;
-    console.log('payload is : ', payload);
-    console.log('count is : ', state.count);
     const length = state.originalList?.length || payload.playlist.length
     switch (type) {
         case 'next': {

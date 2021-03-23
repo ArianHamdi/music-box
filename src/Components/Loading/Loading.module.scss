@@ -1,0 +1,45 @@
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 10rem;
+    position: relative;
+}
+.loading div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0.8rem;
+    border: 1rem solid var(--color-tertiary);
+    border-radius: 50%;
+    animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: var(--color-tertiary) transparent transparent transparent;
+}
+.loading div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.loading div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.loading div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

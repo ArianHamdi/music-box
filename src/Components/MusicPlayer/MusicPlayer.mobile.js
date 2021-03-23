@@ -35,13 +35,6 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
     //     }
     // })
 
-    useEffect(() => {
-        console.log('progressRef', progressRef);
-    })
-
-
-
-
     const throttle = useThrottle();
 
     const [full, isFull] = useState(false)
@@ -62,7 +55,7 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
                 <>
                     <div className={styles.musicPlayer}>
                         <CSSTransition in={full} classNames='cover' timeout={1200}>
-                            <img className={styles.cover} src={song.album.cover_medium} alt="music cover" />
+                            <img className={styles.cover} src={song.cover} alt="music cover" />
                         </CSSTransition>
                         <CSSTransition in={full} classNames='song' timeout={1200}>
                             <div className={styles.song} >

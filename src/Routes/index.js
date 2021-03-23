@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { AnimatedSwitch } from 'react-router-transition'
 import AppLayoutRoute from '../Layout/AppLayoutRoute';
 
 import ScrollToTop from '../Components/ScrollToTop/ScrollToTop'
@@ -9,6 +8,7 @@ import Category from '../Pages/Category/Category'
 import Library from '../Pages/Library/Library'
 import Genre from '../Pages/Genre/Genre'
 import Artist from '../Pages/Artist/Artist'
+import Album from '../Pages/Album/Album'
 
 const Routes = () => (
 
@@ -20,7 +20,8 @@ const Routes = () => (
             <AppLayoutRoute path='/category/:genre' component={Genre} />
             <AppLayoutRoute path='/library' component={Library} />
             <AppLayoutRoute path='/artist/:id' component={Artist} />
-            <Route path='/about' exact component={Landing} />
+            <AppLayoutRoute path='/album/:id' component={Album} />
+            <AppLayoutRoute path='/about' exact component={Landing} />
         </Switch>
     </Router >
 )

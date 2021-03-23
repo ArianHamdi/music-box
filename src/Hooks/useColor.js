@@ -14,9 +14,10 @@ export const useColor = picture => {
     useEffect(() => {
         if (!picture) return;
         fac.getColorAsync(picture, { algorithm: 'dominant' }).then(color => {
+            const theme = color.isDark ? '#ffffff' : '#000000'
             setColor({
                 color: color.hex,
-                isDark: color.isDark
+                theme
             });
         })
     }, [picture])

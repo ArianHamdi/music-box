@@ -1,0 +1,101 @@
+.header {
+    margin: 4rem;
+    display: grid;
+    grid-template-columns: max-content 1fr 15rem;
+    column-gap: 4rem;
+    align-items: center;
+
+    @include media("<md") {
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: repeat(2, max-content);
+        row-gap: 3rem;
+        margin: 2rem;
+    }
+}
+
+.cover_container {
+    position: relative;
+    width: 17.5rem;
+    height: 17.5rem;
+    border-radius: 15px;
+    box-shadow: 0 1.5rem 4rem black;
+
+    @include media("<md") {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    @include media("<sm") {
+        width: 12.5rem;
+        height: 12.5rem;
+    }
+}
+
+.cover {
+    width: 17.5rem;
+    height: 17.5rem;
+    border-radius: 15px;
+
+    @include media("<md") {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    @include media("<sm") {
+        width: 12.5rem;
+        height: 12.5rem;
+    }
+}
+
+.artist_picture {
+    display: block;
+    position: absolute;
+    top: 95%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100rem;
+    box-shadow: 0 1.5rem 4rem black;
+    transition: transform 0.2s;
+    cursor: pointer;
+
+    &:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    @include media("<md") {
+        left: 50%;
+        top: 100%;
+    }
+}
+
+.info {
+    filter: invert(100);
+    h4 {
+        font-size: 3.5rem;
+        margin-bottom: 3rem;
+    }
+    h3 {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+
+        @include media("<md") {
+            font-size: 2.4rem;
+        }
+    }
+}
+
+.duration {
+    filter: invert(100);
+    font-size: 1.5rem;
+    font-weight: 700;
+    justify-self: end;
+
+    @include media("<md") {
+        grid-column: 1 / -1;
+    }
+}

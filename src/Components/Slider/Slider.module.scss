@@ -1,0 +1,27 @@
+.swiperContainer {
+    .swiperSlide {
+        width: auto;
+    }
+}
+
+.controller {
+    display: flex;
+    justify-content: space-between;
+    width: 5rem;
+
+    @include media("<md") {
+        width: 6rem;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 1.8rem;
+    color: var(--color-white-1);
+}

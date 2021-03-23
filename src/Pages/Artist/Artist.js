@@ -1,31 +1,36 @@
 import styles from './Artist.module.scss';
-
+import { useParams, useLocation } from 'react-router-dom'
+import Loading from '../../Components/Loading/Loading'
+import { useArtistInformation } from '../../Hooks/useAPI'
 import { useColor } from '../../Hooks/useColor'
 import Header from './Components/Header/Header'
 import Songs from './Components/Songs/Songs'
+import Albums from './Components/Albums/Albums'
 
-import { useParams, useLocation } from 'react-router-dom'
-import { useArtistInfo } from '../../Hooks/useAPI'
+import Related from './Components/Related/Related'
+
 
 const Artist = () => {
 
     const { id } = useParams();
 
-    const { data } = useArtistInfo(id);
+    const { data: artist } = useArtistInformation(id);
 
-    const location = useLocation();
+    const { state } = useLocation();
 
-    const picture = location.state?.picture || data?.picture;
+    const picture = state?.artist_picture || artist?.picture;
 
-    const { color, isDark } = useColor(picture);
+    const { color, theme } = useColor(picture);
 
     return (
         <section className={styles.artist} >
-            {picture && <>
-                <img className={styles.background} src={picture} alt="artist" />
-                <Header name={data?.name} fans={data?.fans} picture={picture} color={color} />
-            </>}
-            {data && <Songs playlist={data.songs} color={color} isDark={isDark} artist={data?.name} artistID={id} />}
+            <img className={styles.background} src={picture} alt="artist" />
+            {!picture && <Loading />}
+            {picture && <> <Header id={id} picture={picture} color={color} />
+                <Songs id={id} theme={theme} />
+                <Albums id={id} picture={picture} theme={theme} />
+                <Related id={id} /></>
+            }
         </section>
     )
 

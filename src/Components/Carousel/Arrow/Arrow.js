@@ -3,8 +3,8 @@ import styles from './Arrow.module.scss';
 
 import Icon from '../../../Components/Icon/Icon'
 
-import next from '../../../assets/SVGs/Next.svg'
-import previous from '../../../assets/SVGs/Previous.svg'
+import next from '../../../assets/SVGs/next.svg'
+import previous from '../../../assets/SVGs/previous.svg'
 
 import { useData } from '../../../Contexts/data-context'
 

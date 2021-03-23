@@ -1,31 +1,26 @@
 import styles from './Genre.module.scss';
-import { useParams, useHistory } from 'react-router-dom';
+import Artist from '../../Components/Artist/Artist'
+import { useParams } from 'react-router-dom';
 import { useAllArtists } from '../../Hooks/useAPI'
+import Loading from '../../Components/Loading/Loading'
 
 const Genre = () => {
 
     const { genre } = useParams();
 
-    const history = useHistory();
+    const { data } = useAllArtists(genre);
 
-    const { data, isLoading } = useAllArtists(genre);
-
-    const artistHandler = (id, picture) => {
-        history.push(`/artist/${id}`, { picture });
-    }
-
-    const artists = !isLoading ? data?.data.map(artist => {
+    const artists = data?.data.map(artist => {
+        const { id, picture_medium: artist_picture, name } = artist;
         return (
-            <figure key={artist.id} onClick={() => artistHandler(artist.id, artist.picture_medium)}>
-                <img src={artist.picture_medium} alt="artist" />
-                <figcaption>{artist.name}</figcaption>
-            </figure>
+            <Artist key={id} id={id} artist_picture={artist_picture} name={name} />
         )
-    }) : null
+    })
 
     return (
         <div className={styles.genre}>
             <h2>{genre}</h2>
+            {!data && <Loading />}
             {artists}
         </div>
     )

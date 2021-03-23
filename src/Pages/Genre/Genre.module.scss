@@ -25,6 +25,11 @@
         border-radius: 20rem;
         overflow: hidden;
         box-shadow: 8px 10px 2rem black;
+        transition: all 0.2s;
+
+        &:hover {
+            transform: translateY(1rem);
+        }
 
         img {
             display: block;
@@ -46,13 +51,13 @@
             transition: all 0.4s;
         }
 
-        &:hover figcaption {
-            transform: translate(-50%, 12rem);
-        }
+        // &:hover figcaption {
+        //     transform: translate(-50%, 12rem);
+        // }
 
-        &:hover img {
-            transform: scale(1.1);
-            filter: blur((5px));
-        }
+        // &:hover img {
+        //     transform: scale(1.1);
+        //     filter: blur((5px));
+        // }
     }
 }

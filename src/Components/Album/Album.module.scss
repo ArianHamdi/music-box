@@ -1,0 +1,76 @@
+.album {
+    width: 100%;
+    cursor: pointer;
+    @include no-select;
+}
+
+.descriptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+    padding: 0 5px;
+    transition: all 0.2s;
+    color: white;
+}
+
+.cover {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    transition: all 0.2s;
+    border-radius: 15px;
+    padding-top: 100%;
+
+    &:hover + .descriptions {
+        color: var(--color-tertiary) !important;
+        transform: scale(1.2);
+    }
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        &::after {
+            border: 5px solid var(--color-tertiary);
+        }
+        img {
+            transform: scale(1.1);
+        }
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transition: all 0.2s;
+        border-radius: 15px;
+    }
+
+    &::after {
+        content: "";
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% - 10px);
+        height: calc(100% - 10px);
+        z-index: 10;
+    }
+}
+
+.name {
+    font-size: 1.3rem;
+    // color: var(--color-white-1);
+}
+
+.release {
+    // color: var(--color-black-1);
+    margin-top: 6px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}

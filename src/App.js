@@ -11,7 +11,8 @@ const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 1 * 60 * 1000,
+        // staleTime: 1 * 60 * 1000,
+        staleTime: Infinity,
         refetchOnWindowFocus: false,
       }
     }
@@ -27,7 +28,7 @@ const App = () => {
         <Routes />
 
       </PlaylistProvider>
-      <ReactQueryDevtools />
+      {/* <ReactQueryDevtools /> */}
     </QueryClientProvider>
   )
 }

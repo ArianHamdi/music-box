@@ -16,6 +16,7 @@ img {
 
 html {
   font-size: 62.5%;
+
   @include media("<lg") {
     font-size: 56.25%;
   }

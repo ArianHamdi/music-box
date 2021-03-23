@@ -4,23 +4,8 @@
     align-items: center;
     margin: 4rem;
 
-
     @include media("<md") {
         flex-direction: column;
-    }
-
-    img {
-        width: 17.5rem;
-        height: 17.5rem;
-        border-radius: 10rem;
-        margin-right: 2rem;
-        box-shadow: 0 1.5rem 4rem black;
-
-        @include media("<md") {
-            width: 20rem;
-            height: 20rem;
-            margin: auto;
-        }
     }
 }
 
@@ -99,4 +84,18 @@
 
 .button {
     padding: 0.6rem 2.5rem;
+}
+
+.test {
+    width: 17.5rem;
+    height: 17.5rem;
+    border-radius: 10rem;
+    margin-right: 2rem;
+    box-shadow: 0 1.5rem 4rem black;
+
+    @include media("<md") {
+        width: 20rem;
+        height: 20rem;
+        margin: auto;
+    }
 }

@@ -1,4 +1,9 @@
 .home {
-    padding: 8rem;
+    padding: 10rem 6rem;
+    min-height: 100vh;
     background-color: var(--color-dark-2);
+
+    @include media("<md") {
+        padding: 4rem 0;
+    }
 }

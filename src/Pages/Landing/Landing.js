@@ -8,7 +8,7 @@ import ListenAnyTime from './Components/ListenAnyTime/ListenAnyTime'
 const LandingPage = () => {
     return (
         <section className={styles.landing}>
-            <Navigation />
+            {/* <Navigation /> */}
             <Header />
             <Flow />
             <ListenAnyTime />

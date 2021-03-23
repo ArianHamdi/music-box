@@ -1,20 +1,23 @@
 import styles from './HomePage.module.scss';
 
-import Browse from './Components/Browse';
-import Productive from './Components/Productive'
-import Podcast from './Components/Podcast'
-import Playlist from './Components/Playlist'
-import Releases from './Components/Releases'
+import TopTrack from './components/TopTracks'
+import TopArtists from './components/TopArtists'
+import TopAlbums from './components/TopAlbums'
+import Loading from '../../Components/Loading/Loading';
+
+import { useTopArtists, useTopAlbums } from '../../Hooks/useAPI'
 
 const HomePage = () => {
 
+    const { data: artists } = useTopArtists();
+    const { data: albums } = useTopAlbums();
+
     return (
         <section className={styles.home}>
-            <Browse />
-            <Productive />
-            <Podcast />
-            <Playlist />
-            <Releases />
+            {/* <TopTrack /> */}
+            {!(artists || albums) && <Loading />}
+            <TopArtists artists={artists} />
+            <TopAlbums albums={albums} />
         </section>
     )
 }
