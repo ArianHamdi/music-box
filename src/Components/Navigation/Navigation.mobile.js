@@ -4,7 +4,7 @@ import colors from '../../Constant/colors'
 import { useLocation, useHistory } from 'react-router-dom'
 
 import Icon from '../Icon/Icon';
-import home from '../../assets/SVGs/home.svg'
+import home from '../../assets/svg/home.svg'
 
 const NavigationMobile = () => {
 

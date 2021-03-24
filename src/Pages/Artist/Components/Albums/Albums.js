@@ -2,7 +2,6 @@ import { useState } from 'react'
 import styles from './Albums.module.scss'
 import { useArtistAlbums } from '../../../../Hooks/useAPI'
 import Album from '../../../../Components/Album/Album';
-import Button from '../../../../Components/Button/Button'
 
 const Albums = ({ id, picture, theme }) => {
 

@@ -1,10 +1,11 @@
+import { memo } from 'react'
 import styles from './Artist.module.scss';
 import { useHistory } from 'react-router-dom'
-import favorite from '../../assets/SVGs/favorite.svg'
+import favorite from '../../assets/svg/favorite.svg'
 import colors from '../../Constant/colors'
 import Icon from '../Icon/Icon'
 
-const Artist = ({ id, artist_picture, name, fans }) => {
+const Artist = memo(({ id, artist_picture, name, fans }) => {
 
     const history = useHistory();
 
@@ -19,14 +20,10 @@ const Artist = ({ id, artist_picture, name, fans }) => {
                 <img src={artist_picture} alt="artist" />
             </div>
             <div className={styles.description}>
-                <h5 className={styles.name}> {name}</h5>
-                {fans && <div className={styles.fans}>
-                    <Icon src={favorite} size={13} fill={colors.grey_1} />
-                    <h6 className={styles.fans}>{fans}</h6>
-                </div>}
+                <h5 className={styles.name}>{name}</h5>
             </div>
         </div>
     )
-}
+})
 
 export default Artist;

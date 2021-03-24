@@ -8,16 +8,21 @@
     padding: 6vw;
     background-color: var(--color-dark-2);
 
-    h3 {
-        display: block;
-        color: var(--color-white-1);
-        margin-top: 5rem;
-        font-size: 1.78em;
-        grid-column: 1/-1;
-    }
-
     img {
         width: 100%;
         cursor: pointer;
+    }
+}
+
+.title {
+    grid-column: 1/-1;
+    margin-bottom: 2rem;
+    h3 {
+        display: inline-block;
+        color: var(--color-white-1);
+        font-size: 3.5rem;
+        margin-left: 1rem;
+        padding: 1rem;
+        border-bottom: 3px solid var(--color-tertiary);
     }
 }

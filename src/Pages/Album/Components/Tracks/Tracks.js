@@ -4,7 +4,7 @@ import { convertTime } from '../../../../utilities/utilities'
 import { usePlaylistDispatch } from '../../../../Contexts/playlist-context'
 
 import Icon from '../../../../Components/Icon/Icon'
-import play from '../../../../assets/SVGs/play.svg'
+import play from '../../../../assets/svg/play.svg'
 
 const Tracks = ({ tracks, theme, artist_id }) => {
 

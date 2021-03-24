@@ -1,29 +1,27 @@
 import styles from './Category.module.scss';
 import { useHistory } from 'react-router-dom'
-import * as genresImage from '../../assets/Genres/Genres';
-
-const genresName = [
-    'hip-hop', 'rock', 'jazz', 'pop', 'metal', 'classical', 'r&b',
-    'electro', 'country', 'soul&funk', 'blues', 'indie', 'latin', 'reggae'
-]
+import genres from '../../data/genres'
+import genresImage from '../../assets/images/genres/index'
 
 const CategoryPage = () => {
 
     const history = useHistory();
 
-    const genreHandler = genre => {
+    const genrePageHandler = genre => {
         history.push(`/category/${genre}`);
     }
 
-    console.log('genre');
-    
-    const genresAlbum = genresImage.default.map((image, index) => {
-        return <img key={index} src={image.default} alt='song genres' onClick={() => genreHandler(genresName[index])} />
+    const genresKey = Object.keys(genres);
+
+    const genresAlbum = genresKey.map((genre, index) => {
+        return <img key={index} src={genresImage[index].default} alt={genre} onClick={() => genrePageHandler(genresKey[index])} />
     })
 
     return (
         <div className={styles.category}>
-            <h3>Genres</h3>
+            <div className={styles.title}>
+                <h3>Genres</h3>
+            </div>
             {genresAlbum}
         </div >
     )

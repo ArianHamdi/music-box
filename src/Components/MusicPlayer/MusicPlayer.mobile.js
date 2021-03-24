@@ -4,17 +4,16 @@ import './MusicPlayerAnimation.scss'
 
 import { CSSTransition } from 'react-transition-group'
 import classnames from 'classnames'
-import { useThrottle } from '../../Hooks/useThrottle'
 
 import Icon from '../Icon/Icon'
 import { useHistory, useLocation } from 'react-router-dom'
 
 import MusicProgressBar from '../MusicProgressBar/MusicProgressBar';
 
-import previous from '../../assets/SVGs/PreviousSong.svg'
-import next from '../../assets/SVGs/NextSong.svg'
-import shuffle from '../../assets/SVGs/Shuffle.svg'
-import repeat from '../../assets/SVGs/Repeat.svg'
+import previous from '../../assets/svg/PreviousSong.svg'
+import next from '../../assets/svg/NextSong.svg'
+import shuffle from '../../assets/svg/Shuffle.svg'
+import repeat from '../../assets/svg/Repeat.svg'
 
 
 const MusicPlayerMobile = forwardRef((props, progressRef) => {
@@ -35,7 +34,6 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
     //     }
     // })
 
-    const throttle = useThrottle();
 
     const [full, isFull] = useState(false)
 

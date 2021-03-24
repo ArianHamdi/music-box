@@ -2,7 +2,6 @@ import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import PlaylistProvider from './Contexts/playlist-context'
 import InitialPlaylist from './Components/InitialPlaylist/InitialPlaylist';
-import ProgressProvider from './Contexts/progress-context'
 
 import Routes from './Routes/index'
 

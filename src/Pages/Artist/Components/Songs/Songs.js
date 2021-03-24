@@ -6,10 +6,9 @@ import { usePlaylistDispatch } from '../../../../Contexts/playlist-context'
 import { useArtistPlaylist } from '../../../../Hooks/useAPI'
 import { useDimentions } from '../../../../Hooks/useDimentions'
 import { convertTime, shorten } from '../../../../utilities/utilities'
-import Button from '../../../../Components/Button/Button'
 import Icon from '../../../../Components/Icon/Icon'
 
-import play from '../../../../assets/SVGs/play.svg'
+import play from '../../../../assets/svg/play.svg'
 
 const Songs = ({ id, theme }) => {
 

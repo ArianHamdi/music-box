@@ -1,5 +1,7 @@
 .artist {
+    width: 100%;
     @include no-select;
+    transform: translateZ(0);
     cursor: pointer;
 }
 
@@ -11,6 +13,7 @@
 }
 
 .picture {
+    // transform: translateZ(0);
     position: relative;
     border-radius: 100rem;
     overflow: hidden;
@@ -31,7 +34,7 @@
             .name,
             .fans {
                 color: var(--color-tertiary);
-                transform: scale(1.2);
+                transform: scale(1.1);
             }
         }
     }
@@ -63,7 +66,7 @@
 .name {
     width: 98%;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--color-white-1);
     transition: all 0.2s;
 }

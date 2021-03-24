@@ -19,7 +19,9 @@ const Genre = () => {
 
     return (
         <div className={styles.genre}>
-            <h2>{genre}</h2>
+            <div className={styles.title}>
+                <h2>{genre}</h2>
+            </div>
             {!data && <Loading />}
             {artists}
         </div>

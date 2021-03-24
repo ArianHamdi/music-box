@@ -3,10 +3,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     grid-template-rows: max-content;
+    height: 25rem;
     grid-auto-rows: 0;
     overflow: hidden;
     column-gap: 2rem;
-    // row-gap: 2rem;
+    row-gap: 2rem;
     justify-items: center;
 
     margin: 5rem 0;

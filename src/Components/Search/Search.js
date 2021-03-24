@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group'
 import { useSearchResult } from '../../Hooks/useAPI'
 import { useClickOutside } from '../../Hooks/useClickOutside'
 import Icon from '../Icon/Icon'
-import search from '../../assets/SVGs/Search.svg'
+import search from '../../assets/svg/Search.svg'
 import Loading from '../Loading/Loading'
 import colors from '../../Constant/colors'
 
@@ -21,8 +21,6 @@ const InputText = () => {
 
 
     const { data, isLoading } = useSearchResult(query)
-
-    console.log(data);
 
     const showResult = () => {
         setShow(true)
@@ -47,7 +45,7 @@ const InputText = () => {
     }
 
     // creates tabs dynamiclly
-    const tabs = ['Albums', 'Artists'].map(tab => {
+    const tabs = ['Tracks', 'Albums', 'Artists'].map(tab => {
         const backgroundColor = tab === activeTab ? colors.tertiary : 'transparent'
         const color = tab === activeTab ? colors.dark_2 : colors.white_1
         return (
@@ -80,7 +78,7 @@ const InputText = () => {
     const result = activeTab === 'Artists' ? artists : albums
 
     return (
-        <div className={styles.search} ref={searchRef} onClick={showResult}>
+        <div className={styles.search} ref={searchRef} onFocus={showResult}>
             <div className={styles.input}>
                 <input type='text' onChange={changeInputHandler} placeholder='search' />
                 <Icon src={search} />

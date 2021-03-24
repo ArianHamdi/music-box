@@ -5,12 +5,12 @@ import { convertTime } from '../../utilities/utilities'
 
 import Icon from '../Icon/Icon'
 
-import shuffle from '../../assets/SVGs/Shuffle.svg';
-import repeat from '../../assets/SVGs/Repeat.svg';
-import previous from '../../assets/SVGs/PreviousSong.svg';
-import next from '../../assets/SVGs/NextSong.svg';
+import shuffle from '../../assets/svg/Shuffle.svg';
+import repeat from '../../assets/svg/Repeat.svg';
+import previous from '../../assets/svg/PreviousSong.svg';
+import next from '../../assets/svg/NextSong.svg';
 
-import volume from '../../assets/SVGs/Volume.svg';
+import volume from '../../assets/svg/Volume.svg';
 
 import MusicProgressBar from '../MusicProgressBar/MusicProgressBar';
 import VolumeProgressBar from '../VolumeProgressBar/VolumeProgressBar'

@@ -1,5 +1,10 @@
 @import "./Constant/colors.scss";
 
+@font-face {
+  font-family: Varela;
+  src: url(./assets/fonts//VarelaRound-Regular.ttf);
+}
+
 ul {
   list-style: none;
 }
@@ -17,6 +22,10 @@ img {
 html {
   font-size: 62.5%;
 
+  @include media("<xxl") {
+    font-size: 68.75;
+  }
+
   @include media("<lg") {
     font-size: 56.25%;
   }
@@ -29,8 +38,8 @@ body {
   @include media("<md") {
     margin-bottom: 8rem;
   }
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: Varela, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

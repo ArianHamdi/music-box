@@ -60,7 +60,6 @@ const playlistReducer = (state, action) => {
                 artist = payload.artist;
             }
             if (state.isShuffle) {
-                console.log('run');
                 shuffleList.forEach((song, songIndex) => {
                     if (song.id === originalList[payload.index].id) {
                         index = songIndex

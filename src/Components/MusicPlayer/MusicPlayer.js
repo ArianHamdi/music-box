@@ -4,10 +4,9 @@ import breakpoints from '../../Constant/breakpoints'
 import MusicPlayerDesktop from './MusicPlayer.desktop'
 import MusicPlayerMobile from './MusicPlayer.mobile'
 import { useSong, usePlaylistDispatch } from '../../Contexts/playlist-context'
-import { usePrevious } from '../../Hooks/usePrevius'
 import colors from '../../Constant/colors'
-import Pause from '../../assets/SVGs/pause.svg'
-import Play from '../../assets/SVGs/play.svg'
+import Pause from '../../assets/svg/pause.svg'
+import Play from '../../assets/svg/play.svg'
 
 const MusicPlayer = () => {
 
@@ -33,7 +32,7 @@ const MusicPlayer = () => {
 
 
     useEffect(() => {
-        if (count > 1) {
+        if (count > 0) {
             setIsPlaying(true)
             const playPromise = audioRef.current.play();
             if (playPromise !== undefined) {

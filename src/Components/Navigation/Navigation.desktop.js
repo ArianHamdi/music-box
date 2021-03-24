@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import Navbar from '../Navbar/Nabbar'
 import Search from '../Search/Search'
 
-import logo from '../../assets/Logo.png'
+import logo from '../../assets/images/Logo.png'
 
 const NaivgationDesktop = () => {
 

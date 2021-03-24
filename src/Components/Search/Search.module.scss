@@ -58,12 +58,14 @@
 .result {
     position: relative;
     margin-top: 1rem;
-    width: 35rem;
-    height: 40rem;
+    width: 40rem;
+    min-height: 20rem;
+    max-height: 40rem;
     border-radius: 1rem;
     background-color: #010816f5;
     display: none;
     overflow: hidden;
+    transition: all 2s;
 }
 
 .header {
@@ -82,14 +84,11 @@
 
     transition: all 0.2s;
 
-    &:nth-child(1) {
-        background-color: var(--color-tertiary);
+    &:first-of-type {
         border-top-left-radius: 1rem;
-        // border-bottom-left-radius: 1rem;
     }
-    &:nth-child(2) {
+    &:last-of-type {
         border-top-right-radius: 1rem;
-        // border-bottom-right-radius: 1rem;
     }
 }
 
