@@ -10,6 +10,7 @@
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "fast-average-color": "^6.3.0",
+    "immer": "^9.0.1",
     "include-media": "^1.4.9",
     "lodash": "^4.17.21",
     "node-sass": "5.0.0",
@@ -22,6 +23,7 @@
     "react-transition-group": "^4.4.1",
     "sass-resources-loader": "^2.1.1",
     "swiper": "^6.4.15",
+    "use-immer": "^0.5.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

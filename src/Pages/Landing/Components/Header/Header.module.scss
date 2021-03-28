@@ -24,8 +24,33 @@
 
     h1 {
         font-size: 4rem;
+        animation: to-left 1s;
+        margin-bottom: 1rem;
     }
     h2 {
         font-size: 3rem;
+        animation: to-right 1.2s;
+    }
+}
+
+@keyframes to-left {
+    from {
+        transform: translateX(15rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0rem);
+        opacity: 1;
+    }
+}
+
+@keyframes to-right {
+    from {
+        transform: translateX(-15rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0rem);
+        opacity: 1;
     }
 }

@@ -1,84 +1,83 @@
-import { useEffect, useReducer, useContext, createContext } from 'react'
+import { useEffect, useContext, createContext } from 'react'
 import { shuffle } from '../utilities/utilities'
+import { useImmerReducer } from 'use-immer'
+import { nth } from 'lodash'
 
 const PlaylistStateContext = createContext();
 const PlaylistDispatchContext = createContext();
 
 const initialState = {
-    artist: '',
-    originalList: null,
-    shuffleList: null,
+    info: {
+        type: '',
+        id: 0
+    },
+    playlist: null,
+    shuffledList: null,
+    song: null,
     index: 0,
     isRepeat: false,
     isShuffle: false,
     count: 0
 }
 
-const playlistReducer = (state, action) => {
+
+const playlistReducer = (draft, action) => {
+
     const { type, payload } = action;
-    const length = state.originalList?.length || payload.playlist.length
+
+    console.log('index', draft.index);
+
+    const length = draft.playlist?.length;
+
     switch (type) {
         case 'next': {
-            const index = state.index + 1 % length;
-            return { ...state, index }
+            draft.index = (draft.index + 1) % length;
+            draft.song = draft.isShuffle ? nth(draft.shuffledList, draft.index) : nth(draft.playlist, draft.index);
+            draft.count++;
+            return;
         }
         case 'previous': {
-            const index = state.index - 1 % length;
-            return { ...state, index }
+            draft.index = (draft.index + -1) % length;
+            draft.song = draft.isShuffle ? nth(draft.shuffledList, draft.index) : nth(draft.playlist, draft.index);
+            draft.count++;
+            return;
         }
         case 'song-ended': {
-            let index = state.isRepeat ? state.index : state.index + 1;
-            index = index % length;
-            const count = state.count + 1;
-            return { ...state, index, count }
+            if (!draft.isRepeat) {
+                draft.index = draft.index + 1 % length;
+                draft.song = draft.isShuffle ? nth(draft.shuffledList, draft.index) : nth(draft.playlist, draft.index);
+            }
+            draft.count++;
+            return;
         }
         case 'shuffle': {
-            if (!payload) return { ...state, isShuffle: false };
-            const { originalList, shuffleList } = state
-            let index = state.index;
-            const isShuffle = payload;
-            // if (state.isRepeat) {
-            //     shuffleList.forEach((song, songIndex) => {
-            //         if (song.id === originalList[index].id) {
-            //             index = songIndex
-            //         }
-            //     });
-            // }
-            return { ...state, isShuffle, index };
+            draft.isShuffle = !draft.isShuffle;
+            return;
         }
         case 'repeat': {
-            const isRepeat = payload
-            return { ...state, isRepeat }
+            draft.isRepeat = !draft.isRepeat;
+            return;
         }
         case 'playlist': {
-            let { originalList, shuffleList, artist } = state;
-            let { index, playlist } = payload;
-            const count = state.count + 1;
-            if (artist !== payload.artist) {
-                originalList = playlist;
-                shuffleList = shuffle(originalList);
-                artist = payload.artist;
+            if (draft.info.type !== payload.info.type || draft.info.id !== payload.info.id) {
+                draft.playlist = payload.playlist;
+                draft.shuffledList = shuffle(payload.playlist)
+                draft.info = payload.info
             }
-            if (state.isShuffle) {
-                shuffleList.forEach((song, songIndex) => {
-                    if (song.id === originalList[payload.index].id) {
-                        index = songIndex
-                    }
-                });
-            }
-            index = index % length
-            return { ...state, artist, originalList, shuffleList, index, count }
+            draft.index = payload.index;
+            draft.song = payload.playlist[payload.index]
+            draft.count++;
+            return;
         }
         default: {
-            return state;
+            return draft;
         }
     }
-
 }
 
 const PlaylistProvider = ({ children }) => {
 
-    const [playlist, dispatch] = useReducer(playlistReducer, initialState);
+    const [playlist, dispatch] = useImmerReducer(playlistReducer, initialState);
 
     return (
         <PlaylistStateContext.Provider value={playlist}>
@@ -95,15 +94,13 @@ const usePlaylistDispatch = () => {
 }
 
 const useSong = () => {
-    const { artist, originalList, shuffleList, isShuffle, index, count } = useContext(PlaylistStateContext);
-    const playlist = isShuffle ? shuffleList : originalList
-    const song = playlist?.[index];
+    const { song, count } = useContext(PlaylistStateContext);
 
     useEffect(() => {
         const unloadHandler = () => {
             // save last music to local storage
-            const playlist = JSON.stringify({ artist, index });
-            localStorage.setItem('playlist', playlist)
+            // const playlist = JSON.stringify({ artist, index });
+            // localStorage.setItem('playlist', playlist)
         }
         window.addEventListener('unload', unloadHandler)
 

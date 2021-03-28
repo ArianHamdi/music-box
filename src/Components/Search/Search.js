@@ -10,7 +10,7 @@ import Loading from '../Loading/Loading'
 import colors from '../../Constant/colors'
 
 
-const InputText = () => {
+const Search = () => {
 
     const searchRef = useRef();
     const resultRef = useRef();
@@ -79,7 +79,7 @@ const InputText = () => {
 
     return (
         <div className={styles.search} ref={searchRef} onFocus={showResult}>
-            <div className={styles.input}>
+            {/* <div className={styles.input}>
                 <input type='text' onChange={changeInputHandler} placeholder='search' />
                 <Icon src={search} />
             </div>
@@ -91,10 +91,10 @@ const InputText = () => {
                     {isLoading && <Loading position='absolute' size='8rem' />}
                     {!isLoading && result}
                 </div>
-            </CSSTransition>
+            </CSSTransition> */}
         </div >
 
     )
 };
 
-export default InputText;
+export default Search;

@@ -10,15 +10,16 @@
     display: flex;
     align-items: center;
     border: 2px solid var(--color-dark-1);
-    background-color: var(--color-dark-2);
-    padding: 1.2rem;
+    background-color: #161a1ab2;
+    padding: 1rem 1.5rem;
     border-radius: 10rem;
     height: 100%;
+
 
     input {
         background-color: transparent;
         border: none;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         color: var(--color-grey-1);
         width: 25rem;
 
@@ -35,7 +36,7 @@
     input::-webkit-input-placeholder {
         /* Chrome/Opera/Safari */
         color: var(--color-grey-1);
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         transition: all 0.3s;
     }
     input::-moz-placeholder {

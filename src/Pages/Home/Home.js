@@ -18,7 +18,7 @@ const HomePage = () => {
         <section className={styles.home}>
             {!(artists || albums || tracks) && <Loading />}
             {(artists || albums || tracks) && < Genres />}
-            <TopTrack tracks={tracks} />
+            {/* <TopTrack tracks={tracks} /> */}
             <TopArtists artists={artists} />
             <TopAlbums albums={albums} />
         </section>

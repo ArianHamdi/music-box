@@ -8,7 +8,6 @@ const TopTracks = ({ tracks }) => {
     if (!tracks) return null;
 
     const items = tracks?.map(track => {
-        console.log(track);
         const { id: album_id, cover_medium: cover } = track.album
         const { id: artist_id, picture_medium: artist_picture, } = track.artist
         const { id, title, preview } = track
@@ -22,7 +21,7 @@ const TopTracks = ({ tracks }) => {
 
     return (
         <section className={styles.slider}>
-            <Slider title='top tracks'>
+            <Slider title='Top tracks'>
                 {items}
             </Slider>
         </section>

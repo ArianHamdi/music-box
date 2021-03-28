@@ -6,14 +6,18 @@ import { usePlaylistDispatch } from '../../../../Contexts/playlist-context'
 import Icon from '../../../../Components/Icon/Icon'
 import play from '../../../../assets/svg/play.svg'
 
-const Tracks = ({ tracks, theme, artist_id }) => {
+const Tracks = ({ tracks, album_id }) => {
 
     const dispatch = usePlaylistDispatch();
 
     if (!tracks) return null;
 
     const playSong = index => {
-        const payload = { artist: artist_id, playlist: tracks, index }
+        const payload = {
+            playlist: tracks,
+            index,
+            info: { type: 'album', id: album_id }
+        }
         dispatch({ type: 'playlist', payload })
     }
 

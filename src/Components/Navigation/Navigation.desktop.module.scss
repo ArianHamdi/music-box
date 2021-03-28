@@ -3,7 +3,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 5rem;
     z-index: 1000;
 
     & > img {
@@ -22,26 +22,30 @@
     font-size: 1.4rem;
     font-weight: bold;
     border-radius: 100rem;
-    width: 100px;
-    height: 25px;
+    width: 10rem;
+    height: 2.8rem;
     background-color: var(--color-dark-2);
+    background-color: #161a1ad8;
+    border: 2px solid var(--color-dark-1);
 
-    &:not(:last-child) {
-        margin-right: 1rem;
+    &:not(:last-of-type) {
+        margin-right: 1.5rem;
     }
 }
 
 .navLinkActive {
     color: var(--color-tertiary);
+    border: none;
+    height: 2.5rem;
 
     &::before {
         content: "";
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        width: calc(100% + 5px);
-        height: calc(100% + 5px);
+        transform: translate(-50%, -51%);
+        width: calc(100% + 6px);
+        height: calc(100% + 6px);
         border-radius: inherit;
         background-image: linear-gradient(to right, var(--color-secondary), var(--color-primary));
         z-index: -1;

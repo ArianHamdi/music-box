@@ -3,6 +3,7 @@
     @include no-select;
     transform: translateZ(0);
     cursor: pointer;
+    animation: fade-in 1s;
 }
 
 .description {
@@ -13,7 +14,7 @@
 }
 
 .picture {
-    // transform: translateZ(0);
+
     position: relative;
     border-radius: 100rem;
     overflow: hidden;
@@ -69,4 +70,15 @@
     font-size: 1.6rem;
     color: var(--color-white-1);
     transition: all 0.2s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: sscale(1);
+    }
 }

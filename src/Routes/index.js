@@ -13,7 +13,7 @@ import Album from '../Pages/Album/Album'
 const Routes = () => (
 
     <Router>
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
         <Switch >
             <AppLayoutRoute path='/' exact component={Home} />
             <AppLayoutRoute path='/category' exact component={Category} />

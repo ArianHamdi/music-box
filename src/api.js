@@ -35,13 +35,19 @@ const getArtistRelated = async id => {
 const getAlbum = async id => {
     const { data } = await axios.get(`/album/${id}`);
     const { id: artist_id, name: artist_name, picture_medium: artist_picture } = data.artist;
-    const { title, cover_medium: cover, release_date, nb_tracks: tracks_number, duration } = data;
+    const { id: album_id, title, cover_medium: cover, release_date, nb_tracks: tracks_number, duration } = data;
     const tracks = data.tracks.data.map(track => {
         const { name: artist_name, id: artist_id } = track.artist;
         const { id, title, preview, duration } = track;
         return { id, title, artist_name, artist_id, cover, preview, duration };
     })
-    return { artist_id, artist_name, artist_picture, title, cover, tracks, release_date, tracks_number, duration };
+    // const tracks = data.tracks.data.reduce((obj, item) => ({
+    //     ...obj,
+    //     [item.id]: item
+    // }), {})
+
+    // console.log(tracks);
+    return { album_id, artist_id, artist_name, artist_picture, title, cover, tracks, release_date, tracks_number, duration };
 }
 
 const getTopTracks = async () => {
@@ -60,8 +66,8 @@ const getTopArtists = async () => {
 }
 
 const getSearchResult = async query => {
-    const searchArtists = axios.get(`/search/artist?q=${query}&limit=10`)
-    const searchAlbums = axios.get(`/search/album?q=${query}&limit=10`)
+    const searchArtists = axios.get(`/search/artist?q=${query}&limit=5`)
+    const searchAlbums = axios.get(`/search/album?q=${query}&limit=5`)
 
     const { data: artists } = await searchArtists;
     const { data: albums } = await searchAlbums;

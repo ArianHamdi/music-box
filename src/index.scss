@@ -21,6 +21,7 @@ img {
 
 html {
   font-size: 62.5%;
+  letter-spacing: .6px;
 
   @include media("<xxl") {
     font-size: 68.75;

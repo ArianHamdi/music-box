@@ -23,7 +23,11 @@ const Songs = ({ id, theme }) => {
     if (!playlist) return null;
 
     const playSong = index => {
-        const payload = { artist: id, playlist, index }
+        const payload = {
+            playlist,
+            index,
+            info: { type: 'artist', id }
+        }
         dispatch({ type: 'playlist', payload })
     }
 

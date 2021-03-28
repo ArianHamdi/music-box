@@ -17,7 +17,6 @@ const MusicPlayer = () => {
     const progressRef = useRef();
 
 
-
     const [isPlaying, setIsPlaying] = useState(false);
     const [isShuffle, setIsShuffle] = useState(false);
     const [isRepeat, setIsRepeat] = useState(false);
@@ -34,6 +33,7 @@ const MusicPlayer = () => {
     useEffect(() => {
         if (count > 0) {
             setIsPlaying(true)
+            progressRef.current.progress.style.width = 0;
             const playPromise = audioRef.current.play();
             if (playPromise !== undefined) {
                 playPromise
@@ -42,7 +42,7 @@ const MusicPlayer = () => {
 
             }
         }
-    }, [count, song?.id]);
+    }, [count]);
 
     if (!song) return null;
 
@@ -55,10 +55,12 @@ const MusicPlayer = () => {
     }
 
     const setRepeat = () => {
+        dispatch({ type: 'repeat' })
         setIsRepeat(prevState => !prevState);
     }
 
     const setShuffle = () => {
+        dispatch({ type: 'shuffle' })
         setIsShuffle(prevState => !prevState);
     }
 
@@ -67,8 +69,12 @@ const MusicPlayer = () => {
         setIsPlaying(playing => !playing);
     }
 
+    const initialMusicTime = () => {
+        console.log('initial');
+    }
+
     const changeMusicTime = percentage => {
-        const duration = audioRef.current.duration;
+        const duration = audioRef.current.duration || 0;
         const currentTime = duration * percentage;
         audioRef.current.currentTime = currentTime;
     }
@@ -95,8 +101,6 @@ const MusicPlayer = () => {
 
 
     const endSongHandler = () => {
-        dispatch({ type: 'repeat', payload: isRepeat })
-        dispatch({ type: 'shuffle', payload: isShuffle })
         dispatch({ type: 'song-ended' })
     }
 
@@ -106,7 +110,7 @@ const MusicPlayer = () => {
 
     return (
         <>
-            <audio ref={audioRef} src={song.preview} onEnded={endSongHandler} onTimeUpdate={updateMusicTime} ></audio>
+            <audio ref={audioRef} src={song.preview} onEnded={endSongHandler} onTimeUpdate={updateMusicTime}></audio>
             <Component ref={progressRef} changeVolume={changeVolume} songTime={songTime}
                 song={song} playPauseHandler={playPauseHandler} changeMusicTime={changeMusicTime}
                 setRepeat={setRepeat} setShuffle={setShuffle} playing={playing} shuffleActive={shuffleActive}
