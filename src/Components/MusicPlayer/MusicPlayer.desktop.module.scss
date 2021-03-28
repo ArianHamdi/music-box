@@ -32,9 +32,9 @@
     margin-top: 0.5rem;
     width: 30rem;
 
-    @include media("<lg"){
+    @include media("<lg") {
         width: 28rem;
-    } 
+    }
 }
 
 .progress {
@@ -79,5 +79,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 5rem;
+    margin-right: 5rem;
+    svg {
+        margin-right: 0.5rem;
+    }
 }

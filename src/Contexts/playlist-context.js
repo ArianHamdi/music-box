@@ -25,7 +25,7 @@ const playlistReducer = (draft, action) => {
 
     const { type, payload } = action;
 
-    console.log('index', draft.index);
+
 
     const length = draft.playlist?.length;
 
@@ -37,20 +37,30 @@ const playlistReducer = (draft, action) => {
             return;
         }
         case 'previous': {
-            draft.index = (draft.index + -1) % length;
+            draft.index = (draft.index - 1) % length;
             draft.song = draft.isShuffle ? nth(draft.shuffledList, draft.index) : nth(draft.playlist, draft.index);
             draft.count++;
             return;
         }
         case 'song-ended': {
             if (!draft.isRepeat) {
-                draft.index = draft.index + 1 % length;
+                draft.index = (draft.index + 1) % length;
                 draft.song = draft.isShuffle ? nth(draft.shuffledList, draft.index) : nth(draft.playlist, draft.index);
             }
             draft.count++;
+
             return;
         }
         case 'shuffle': {
+            if (draft.isShuffle) {
+                draft.playlist.every((song, index) => {
+                    if (song.id === draft.shuffledList[draft.index].id) {
+                        draft.index = index;
+                        return false;
+                    }
+                    return true
+                })
+            }
             draft.isShuffle = !draft.isShuffle;
             return;
         }
@@ -110,6 +120,11 @@ const useSong = () => {
     return { song, count }
 }
 
+const useSongId = () => {
+    const { song } = useContext(PlaylistStateContext)
+    return song?.id
+}
+
 
 export default PlaylistProvider;
-export { useSong, usePlaylistDispatch }
+export { useSong, useSongId, usePlaylistDispatch }

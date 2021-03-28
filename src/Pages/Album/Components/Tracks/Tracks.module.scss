@@ -40,8 +40,8 @@
     display: flex;
     align-items: center;
     padding: 1.5rem;
-    color: white;
     cursor: pointer;
+    transition: all 0.2s;
 
     &:not(:last-child) {
         border-bottom: 1px solid var(--color-grey-1);
@@ -49,7 +49,7 @@
 
     .index {
         font-size: 1.4rem;
-        margin-right: 3rem;
+        width: 3.5rem;
 
         @include media("<md") {
             font-size: 1.6rem;
