@@ -1,23 +1,10 @@
 .category {
-    display: grid;
-    align-content: start;
-    justify-content: center;
-    min-height: 100vh;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-    gap: 2rem;
     padding: 6vw;
     background-color: var(--color-dark-2);
-
-    img {
-        width: 100%;
-        animation: test 1s;
-        cursor: pointer;
-    }
 }
 
 .title {
-    grid-column: 1/-1;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     h3 {
         display: inline-block;
         color: var(--color-white-1);
@@ -28,7 +15,17 @@
     }
 }
 
-@keyframes test {
+.genres {
+    display: grid;
+    align-content: start;
+    justify-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 2rem;
+    animation: show 1s;
+}
+
+@keyframes show {
     from {
         opacity: 0.4;
         transform: translateY(2rem);

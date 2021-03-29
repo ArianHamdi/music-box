@@ -61,7 +61,7 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
                                 <p>stuck with U</p>
                             </div>
                         </CSSTransition>
-                        {full && <MusicProgressBar ref={progressRef} callback={changeMusicTime} />}
+                        <MusicProgressBar ref={progressRef} callback={changeMusicTime} />
                         <CSSTransition in={full} classNames='icons' timeout={1200}>
                             <ul className={styles.icons} >
                                 <li onClick={setShuffle}>

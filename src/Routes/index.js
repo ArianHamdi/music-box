@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import AppLayoutRoute from '../Layout/AppLayoutRoute';
 
 import ScrollToTop from '../Components/ScrollToTop/ScrollToTop'

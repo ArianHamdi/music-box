@@ -1,28 +1,26 @@
 import styles from './Category.module.scss';
-import { useHistory } from 'react-router-dom'
+import Genre from '../../Components/Genre/Genre'
 import genres from '../../data/genres'
 import genresImage from '../../assets/images/genres/index'
+import Title from '../../Components/Title/Title'
 
 const CategoryPage = () => {
 
-    const history = useHistory();
-
-    const genrePageHandler = genre => {
-        history.push(`/category/${genre}`);
-    }
-
     const genresKey = Object.keys(genres);
 
-    const genresAlbum = genresKey.map((genre, index) => {
-        return <img key={index} src={genresImage[index].default} alt={genre} onClick={() => genrePageHandler(genresKey[index])} />
+    const genresImages = genresKey.map((genre, index) => {
+        return <Genre key={index} cover={genresImage[index].default} alt={genre} genre={genresKey[index]} />
     })
 
     return (
         <div className={styles.category}>
+            <Title value='Category' />
             <div className={styles.title}>
                 <h3>Genres</h3>
             </div>
-            {genresAlbum}
+            <div className={styles.genres}>
+                {genresImages}
+            </div>
         </div >
     )
 }

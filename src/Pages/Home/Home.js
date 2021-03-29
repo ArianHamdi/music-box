@@ -5,6 +5,7 @@ import Genres from './components/Genres'
 import TopArtists from './components/TopArtists'
 import TopAlbums from './components/TopAlbums'
 import Loading from '../../Components/Loading/Loading';
+import Title from '../../Components/Title/Title'
 
 import { useTopArtists, useTopAlbums, useTopTracks } from '../../Hooks/useAPI'
 
@@ -16,10 +17,11 @@ const HomePage = () => {
 
     return (
         <section className={styles.home}>
+            <Title />
             {!(artists || albums || tracks) && <Loading />}
             {(artists || albums || tracks) && < Genres />}
-            {/* <TopTrack tracks={tracks} /> */}
             <TopArtists artists={artists} />
+            <TopTrack tracks={tracks} />
             <TopAlbums albums={albums} />
         </section>
     )

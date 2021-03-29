@@ -3,6 +3,7 @@ import Artist from '../../Components/Artist/Artist'
 import { useParams } from 'react-router-dom';
 import { useAllArtists } from '../../Hooks/useAPI'
 import Loading from '../../Components/Loading/Loading'
+import Title from '../../Components/Title/Title'
 
 const Genre = () => {
 
@@ -19,6 +20,7 @@ const Genre = () => {
 
     return (
         <div className={styles.genre}>
+            <Title value={genre} />
             <div className={styles.title}>
                 <h2>{genre}</h2>
             </div>

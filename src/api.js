@@ -41,12 +41,6 @@ const getAlbum = async id => {
         const { id, title, preview, duration } = track;
         return { id, title, artist_name, artist_id, cover, preview, duration };
     })
-    // const tracks = data.tracks.data.reduce((obj, item) => ({
-    //     ...obj,
-    //     [item.id]: item
-    // }), {})
-
-    // console.log(tracks);
     return { album_id, artist_id, artist_name, artist_picture, title, cover, tracks, release_date, tracks_number, duration };
 }
 

@@ -4,6 +4,7 @@ import { useAlbum } from '../../Hooks/useAPI'
 import { useColor } from '../../Hooks/useColor'
 import Header from './Components/Header/Header'
 import Tracks from './Components/Tracks/Tracks';
+import Title from '../../Components/Title/Title'
 
 const Album = () => {
 
@@ -25,10 +26,11 @@ const Album = () => {
 
     return (
         <section className={styles.album}>
+            <Title value={data?.title} />
             <img className={styles.background} src={cover} alt="artist" />
             {cover && artist_picture && <Header cover={cover} artist_picture={artist_picture} artist_id={artist_id}
                 {...data} color={color} />}
-            <Tracks tracks={data?.tracks} album_id={data?.album_id}/>
+            <Tracks tracks={data?.tracks} album_id={data?.album_id} />
         </section>
     )
 }

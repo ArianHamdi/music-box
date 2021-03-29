@@ -84,7 +84,6 @@ const MusicPlayer = () => {
     }
 
     const updateMusicTime = event => {
-        // const duration = !isNaN(event.target.duration) ? event.target.duration : Infinity;
         const duration = event.target.duration
         const currentTime = event.target.currentTime;
         const percentage = currentTime * 100 / duration + '%';

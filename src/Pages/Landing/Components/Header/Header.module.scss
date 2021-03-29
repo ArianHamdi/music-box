@@ -20,11 +20,12 @@
         width: 100%;
         height: 100%;
         background-image: url("../../../../assets/images/landing_header.jpg");
+        animation: fade-out 1s;
     }
 
     h1 {
         font-size: 4rem;
-        animation: to-left 1s;
+        animation: to-left 1.2s;
         margin-bottom: 1rem;
     }
     h2 {
@@ -51,6 +52,15 @@
     }
     to {
         transform: translateX(0rem);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 0;
+    }
+    to {
         opacity: 1;
     }
 }

@@ -6,8 +6,8 @@ import { useColor } from '../../Hooks/useColor'
 import Header from './Components/Header/Header'
 import Songs from './Components/Songs/Songs'
 import Albums from './Components/Albums/Albums'
-
 import Related from './Components/Related/Related'
+import Title from '../../Components/Title/Title'
 
 
 const Artist = () => {
@@ -24,10 +24,11 @@ const Artist = () => {
 
     return (
         <section className={styles.artist} >
+            <Title value={artist?.name} />
             <img className={styles.background} src={picture} alt="artist" />
             {!picture && <Loading />}
             {picture && <> <Header id={id} picture={picture} color={color} />
-                <Songs id={id} theme={theme} />
+                <Songs id={id} />
                 <Albums id={id} picture={picture} theme={theme} />
                 <Related id={id} /></>
             }

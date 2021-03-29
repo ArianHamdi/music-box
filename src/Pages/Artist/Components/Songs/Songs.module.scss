@@ -1,8 +1,29 @@
+.songs {
+    background-color: #18171781;
+    padding: 0 2rem;
+    border-radius: 10px;
+    color: white;
+    margin: auto;
+    width: 90%;
+
+    @include media("<md") {
+        width: 100%;
+    }
+}
+
 .song {
     display: grid;
     grid-auto-flow: dense;
     column-gap: 2rem;
     align-items: center;
+    padding: 1rem 0;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid white;
+    }
+
     grid-template-columns:
         [index-start] 1rem [index-end cover-start] 5rem [cover-end title-start] minmax(20rem, min-content)
         [title-end artist-start] minmax(10rem, 1fr) [artist-end album-start] minmax(10rem, 2fr)
@@ -25,11 +46,6 @@
             font-size: 2rem;
         }
     }
-}
-
-.songs {
-    display: grid;
-    row-gap: 2rem;
 }
 
 .index {

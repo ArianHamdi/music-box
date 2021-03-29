@@ -10,45 +10,5 @@
 }
 
 .genre {
-    transform: translateZ(0);
-    position: relative;
     width: 20rem;
-    padding-top: 55%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: all 0.2s;
-
-    &:hover {
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-        img {
-            transform: scale(1.1);
-        }
-
-        &::before {
-            border: 5px solid rgb(255, 219, 15);
-        }
-    }
-
-    img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        transition: all 0.2s;
-    }
-
-    &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: calc(100% - 10px);
-        height: calc(100% - 10px);
-        transform: translate(-50%, -50%);
-        z-index: 10;
-        border-radius: inherit;
-    }
 }

@@ -14,7 +14,6 @@
 }
 
 .picture {
-
     position: relative;
     border-radius: 100rem;
     overflow: hidden;
@@ -28,7 +27,7 @@
             border: 5px solid var(--color-tertiary);
         }
         img {
-            transform: scale(1.1);
+            transform: scale(0.88);
         }
 
         & + .description {
