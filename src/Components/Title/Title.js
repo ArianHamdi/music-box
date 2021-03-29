@@ -13,7 +13,7 @@ const Title = ({ value }) => {
     //     document.title = `${uppercaseTitle} Music World`
     // }, [value])
 
-    // return null
+    return null
 
     return (
         <Helmet>
