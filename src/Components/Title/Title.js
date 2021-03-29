@@ -19,9 +19,9 @@ const Title = ({ value }) => {
         <Helmet>
             <title>{`${uppercaseTitle} Music World`}</title>
             <meta property="og:title" content="Title" />
-            <meta property="og:site_name" content="Site name" />
-            <meta property="og:description" content="Description" />
-            {/* <meta property="og:image" content="Link to your logo" /> */}
+            <meta property="og:site_name" content="Music world" />
+            <meta property="og:description" content="open the world of music" />
+            <meta property="og:image" content="https://vistapointe.net/images/music-4.jpg" />
         </Helmet>
         // <div></div>
     )
