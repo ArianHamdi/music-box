@@ -1,37 +1,33 @@
-// .albums {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-//     grid-template-rows: max-content;
-//     height: 25rem;
-//     grid-auto-rows: 0;
-//     overflow: hidden;
-//     column-gap: 2rem;
-//     row-gap: 2rem;
-//     justify-items: center;
-
-//     margin: 5rem 0;
-
-//     @include media("<lg") {
-//         grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-//     }
-
-//     @include media("<sm") {
-//         grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-//     }
-// }
-
 .albums {
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-    padding: 2rem;
+    display: grid;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    justify-items: center;
     justify-content: center;
+    margin: 5rem 0;
 
-    & > * {
-        flex: 1;
-        min-width: 15rem;
-        max-width: 18rem;
-        margin: 1rem;
+    @include media(">xxl") {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    @include media("<xxl") {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include media("<xl") {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    @include media("<lg") {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include media("<md") {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include media("<sm") {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 

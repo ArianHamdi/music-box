@@ -20,18 +20,18 @@ img {
 }
 
 html {
-  font-size: 62.5%;
-  letter-spacing: .6px;
+  font-size: 62.5%; // 10px
+  letter-spacing: 0.6px;
 
   @include media("<xxl") {
-    font-size: 68.75;
+    font-size: 68.75%; // 11px
   }
 
   @include media("<lg") {
-    font-size: 56.25%;
+    font-size: 56.25%; // 9px
   }
   @include media("<md") {
-    font-size: 50%;
+    font-size: 50%; // 8px
   }
 }
 

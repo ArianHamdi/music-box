@@ -10,7 +10,7 @@ const Track = ({ album_id, artist_id, artist_picture, cover, title, color }) => 
     const dispatch = usePlaylistDispatch();
 
     const goToHandler = () => {
-        // dispatch('play')
+        const payload = {}
         history.push(`/album/${album_id}`, { artist_picture, cover, artist_id });
     }
 

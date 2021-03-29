@@ -3,11 +3,16 @@ import styles from './Albums.module.scss'
 import { useArtistAlbums } from '../../../../Hooks/useAPI'
 import Album from '../../../../Components/Album/Album';
 
+import { useDimentions } from '../../../../Hooks/useDimentions'
+import breakpoints from '../../../../Constant/breakpoints'
+
 const Albums = ({ id, picture, theme }) => {
 
     const [showAll, setShowAll] = useState(false)
 
     const { data: albums } = useArtistAlbums(id);
+
+    const { width } = useDimentions();
 
     if (!albums) return null;
 
@@ -15,10 +20,21 @@ const Albums = ({ id, picture, theme }) => {
         setShowAll(prev => !prev)
     }
 
-    const gridAutoRows = showAll ? 'auto' : 0;
+    let count;
+    if (width > breakpoints.xxl) count = 7
+    else if (width > breakpoints.xl) count = 6
+    else if (width > breakpoints.lg) count = 5
+    else if (width > breakpoints.md) count = 4
+    else if (width > breakpoints.sm) count = 4
+    else if (width > 0) count = 3
+
+
+
+    const shownAlbums = showAll ? albums : albums.slice(0, count);
+
     const buttonText = showAll ? 'show less' : 'show more'
 
-    const items = albums.map(album => {
+    const items = shownAlbums.map(album => {
         const { id: album_id, title, cover_medium: cover, release_date } = album;
         return (
             <Album key={album_id} album_id={album_id} artist_id={id} artist_picture={picture} title={title} cover={cover} release_date={release_date} color={theme} />
@@ -27,7 +43,7 @@ const Albums = ({ id, picture, theme }) => {
 
     return (
         <section style={{ textAlign: 'center' }}>
-            <div className={styles.albums} style={{ gridAutoRows }}>
+            <div className={styles.albums} >
                 {items}
             </div>
             <button className={styles.button} onClick={showHandler}>{buttonText}</button>
