@@ -88,6 +88,7 @@ const playlistReducer = (draft, action) => {
                 return true;
             })
             draft.playlist = payload.playlist;
+            draft.shuffledList = shuffle(payload.playlist)
             return;
         }
         default: {
