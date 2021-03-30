@@ -28,11 +28,10 @@ const MusicPlayer = () => {
     const { width } = useDimentions();
     const Component = width > breakpoints.md ? MusicPlayerDesktop : MusicPlayerMobile;
 
-
-
     useEffect(() => {
         if (count > 0) {
             setIsPlaying(true)
+            audioRef.current.currentTime = 0;
             progressRef.current.progress.style.width = 0;
             const playPromise = audioRef.current.play();
             if (playPromise !== undefined) {

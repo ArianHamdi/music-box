@@ -16,7 +16,7 @@
     grid-auto-flow: dense;
     column-gap: 2rem;
     align-items: center;
-    padding: 1rem 0;
+    padding: 1rem;
     cursor: pointer;
     transition: all 0.2s;
 
@@ -43,7 +43,7 @@
         }
 
         @include media("<md") {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
     }
 }

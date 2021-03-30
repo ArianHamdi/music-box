@@ -79,6 +79,17 @@ const playlistReducer = (draft, action) => {
             draft.count++;
             return;
         }
+        case 'tracks': {
+            payload.playlist.every((song, index) => {
+                if (song.id === draft.playlist[0].id) {
+                    draft.index = index
+                    return false
+                }
+                return true;
+            })
+            draft.playlist = payload.playlist;
+            return;
+        }
         default: {
             return draft;
         }

@@ -4,6 +4,10 @@
     padding: 5vw 7vw;
     position: relative;
     z-index: 1;
+    
+    @include media("<sm"){
+        padding: 3vw 5vw;
+    }
 }
 
 .background {

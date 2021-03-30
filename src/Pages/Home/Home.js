@@ -1,4 +1,4 @@
-import styles from './HomePage.module.scss';
+import styles from './Home.module.scss';
 
 import TopTrack from './components/TopTracks'
 import Genres from './components/Genres'

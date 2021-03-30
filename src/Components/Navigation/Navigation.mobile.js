@@ -49,10 +49,10 @@ const NavigationMobile = () => {
                 <Icon src={home} fill={activeTab.category} size={30} />
                 <h5 style={{ color: activeTab.category }}>Category</h5>
             </div>
-            {/* <div onClick={() => chnagePageHandler('/about')}>
+            <div onClick={() => chnagePageHandler('/about')}>
                 <Icon src={home} fill={activeTab.about} size={30} />
                 <h5 style={{ color: activeTab.about }}>About</h5>
-            </div> */}
+            </div>
         </nav>
     )
 }

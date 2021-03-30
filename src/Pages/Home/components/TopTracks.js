@@ -9,12 +9,13 @@ const TopTracks = ({ tracks }) => {
 
     const items = tracks?.map(track => {
         const { id: album_id, cover_medium: cover } = track.album
-        const { id: artist_id, picture_medium: artist_picture, } = track.artist
-        const { id, title, preview } = track
+        const { id: artist_id, picture_medium: artist_picture, name: artist_name } = track.artist
+        const { id: track_id, title, preview } = track
         return (
-            <div key={id} className={styles.slide}>
+            <div key={track_id} className={styles.slide}>
                 <Track album_id={album_id} title={title} cover={cover} artist_id={artist_id}
-                    artist_picture={artist_picture} preview={preview} />
+                    artist_picture={artist_picture} preview={preview} track_id={track_id}
+                    artist_name={artist_name} />
             </div>
         )
     })

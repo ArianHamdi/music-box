@@ -24,11 +24,6 @@
         width: 15rem;
         height: 15rem;
     }
-
-    @include media("<sm") {
-        width: 12.5rem;
-        height: 12.5rem;
-    }
 }
 
 .cover {
@@ -39,11 +34,6 @@
     @include media("<md") {
         width: 15rem;
         height: 15rem;
-    }
-
-    @include media("<sm") {
-        width: 12.5rem;
-        height: 12.5rem;
     }
 }
 
@@ -67,6 +57,11 @@
     @include media("<md") {
         left: 50%;
         top: 100%;
+    }
+
+    @include media("<sm") {
+        width: 7rem;
+        height: 7rem;
     }
 }
 

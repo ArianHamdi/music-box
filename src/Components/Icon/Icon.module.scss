@@ -5,7 +5,9 @@
 }
 
 .icon:hover {
-    fill: var(--color-tertiary);
+    @include media(">md") {
+        fill: var(--color-tertiary);
+    }
 }
 
 .invert {

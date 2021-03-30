@@ -1,9 +1,11 @@
+import { useEffect } from 'react'
 import styles from './Album.module.scss';
 import { useParams, useLocation } from 'react-router-dom'
 import { useAlbum } from '../../Hooks/useAPI'
 import { useColor } from '../../Hooks/useColor'
 import Header from './Components/Header/Header'
 import Tracks from './Components/Tracks/Tracks';
+import { usePlaylistDispatch } from '../../Contexts/playlist-context'
 import Title from '../../Components/Title/Title'
 
 const Album = () => {
@@ -12,6 +14,7 @@ const Album = () => {
     const { state } = useLocation();
 
     const { data } = useAlbum(id);
+    const dispatch = usePlaylistDispatch();
 
     // get album cover
     const cover = state?.cover || data?.cover;
@@ -22,7 +25,13 @@ const Album = () => {
     //get artist id
     const artist_id = state?.artist_id || data?.artist_id
 
-    const { color, theme } = useColor(cover);
+    const { color } = useColor(cover);
+
+    useEffect(() => {
+        if (data && state?.play) {
+            dispatch({ type: 'tracks', payload: { playlist: data.tracks } })
+        }
+    }, [data])
 
     return (
         <section className={styles.album}>
