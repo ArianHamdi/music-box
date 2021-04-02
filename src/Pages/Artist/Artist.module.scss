@@ -5,6 +5,10 @@
     position: relative;
     z-index: 1;
 
+    @include media("<md"){
+        padding: 5vw 3vw;
+    }
+
 }
 
 .background {

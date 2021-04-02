@@ -1,8 +1,6 @@
 import { forwardRef } from 'react'
 import styles from './MusicPlayer.desktop.module.scss';
 
-import { convertTime } from '../../utilities/utilities'
-
 import Icon from '../Icon/Icon'
 
 import shuffle from '../../assets/svg/Shuffle.svg';
@@ -18,11 +16,7 @@ import VolumeProgressBar from '../VolumeProgressBar/VolumeProgressBar'
 const MusicPlayerDesktop = forwardRef((props, progressRef) => {
 
     const { playing, setRepeat, setShuffle, shuffleActive, repeatActive, song,
-        playPauseHandler, changeMusicTime, changeVolume, songTime, previousSong, nextSong } = props;
-
-
-    const currentTime = convertTime(songTime.currentTime)
-    const duration = convertTime(songTime.duration)
+        playPauseHandler, changeMusicTime, changeVolume, currentTime, duration, previousSong, nextSong } = props;
 
     const size = 18
 

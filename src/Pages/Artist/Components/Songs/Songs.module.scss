@@ -14,9 +14,9 @@
 .song {
     display: grid;
     grid-auto-flow: dense;
-    column-gap: 2rem;
+    column-gap: 1.5rem;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     cursor: pointer;
     transition: all 0.2s;
 
@@ -25,9 +25,9 @@
     }
 
     grid-template-columns:
-        [index-start] 1rem [index-end cover-start] 5rem [cover-end title-start] minmax(20rem, min-content)
-        [title-end artist-start] minmax(10rem, 1fr) [artist-end album-start] minmax(10rem, 2fr)
-        [album-end duration-start] 3rem [duration-end play-start] 2rem[play-end];
+        [index-start] 1rem [index-end cover-start] 5rem [cover-end title-start] minmax(min-content, 1fr)
+        [title-end artist-start] minmax(10rem, 1fr) [artist-end album-start] minmax(min-content, 1fr)
+        [album-end duration-start] 3rem [duration-end play-start] max-content[play-end];
 
     @include media("<md") {
         grid-template-columns: [cover-start]7rem[cover-end title-start duration-start]minmax(min-content, 1fr) [title-end duration-end play-start] 2rem [play-end];

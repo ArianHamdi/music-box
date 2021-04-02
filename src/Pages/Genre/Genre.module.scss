@@ -1,14 +1,18 @@
 .genre {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
     column-gap: 3rem;
     row-gap: 5rem;
     padding: 6vw;
     min-height: 100vh;
     background-color: var(--color-dark-2);
 
-    @include media("<lg", ">sm") {
-        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    @include media("<md") {
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    }
+
+    @include media(">xxl"){
+        grid-template-columns: repeat(auto-fit, minmax(16vw, 1fr));
     }
 }
 
@@ -18,7 +22,7 @@
         display: inline-block;
         color: var(--color-white-1);
         font-size: 4rem;
-        padding: 1rem ;
+        padding: 1rem;
         margin-left: 1rem;
         border-bottom: 3px solid var(--color-tertiary);
     }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { debounce } from 'lodash'
+import { throttle } from 'lodash'
 
 const getWindowDimentions = () => {
     const { innerWidth: width, innerHeight: height } = window;
@@ -14,9 +14,9 @@ export const useDimentions = () => {
     const [windowDimentions, setWindowDimentions] = useState(getWindowDimentions());
 
     useEffect(() => {
-        const handleResize = debounce(() => {
+        const handleResize = throttle(() => {
             setWindowDimentions(getWindowDimentions());
-        }, 200)
+        }, 500)
 
         window.addEventListener('resize', handleResize);
 

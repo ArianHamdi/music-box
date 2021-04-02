@@ -23,6 +23,11 @@
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 2rem;
     animation: show 1s;
+
+    @include media(">xxl"){
+        grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+        gap: 1vw;
+    }
 }
 
 @keyframes show {

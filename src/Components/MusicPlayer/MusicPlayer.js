@@ -5,6 +5,8 @@ import MusicPlayerDesktop from './MusicPlayer.desktop'
 import MusicPlayerMobile from './MusicPlayer.mobile'
 import { useSong, usePlaylistDispatch } from '../../Contexts/playlist-context'
 import colors from '../../Constant/colors'
+import { convertTime } from '../../utilities/utilities'
+
 import Pause from '../../assets/svg/pause.svg'
 import Play from '../../assets/svg/play.svg'
 
@@ -53,7 +55,7 @@ const MusicPlayer = () => {
         dispatch({ type: 'previous' })
     }
 
-    const setRepeat = e => {
+    const setRepeat = () => {
         dispatch({ type: 'repeat' })
         setIsRepeat(prevState => !prevState);
     }
@@ -105,11 +107,13 @@ const MusicPlayer = () => {
     const playing = isPlaying ? Pause : Play;
     const shuffleActive = isShuffle ? colors.tertiary : 'white'
     const repeatActive = isRepeat ? colors.tertiary : 'white'
+    const currentTime = convertTime(songTime.currentTime)
+    const duration = convertTime(songTime.duration)
 
     return (
         <>
             <audio ref={audioRef} src={song.preview} onEnded={endSongHandler} onTimeUpdate={updateMusicTime}></audio>
-            <Component ref={progressRef} changeVolume={changeVolume} songTime={songTime}
+            <Component ref={progressRef} changeVolume={changeVolume} currentTime={currentTime} duration={duration}
                 song={song} playPauseHandler={playPauseHandler} changeMusicTime={changeMusicTime}
                 setRepeat={setRepeat} setShuffle={setShuffle} playing={playing} shuffleActive={shuffleActive}
                 repeatActive={repeatActive} nextSong={nextSong} previousSong={previousSong} />
