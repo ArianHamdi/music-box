@@ -53,7 +53,7 @@ const MusicPlayer = () => {
         dispatch({ type: 'previous' })
     }
 
-    const setRepeat = () => {
+    const setRepeat = e => {
         dispatch({ type: 'repeat' })
         setIsRepeat(prevState => !prevState);
     }

@@ -1,6 +1,5 @@
 import { useState, forwardRef, useEffect } from 'react'
 import styles from './MusicPlayer.mobile.module.scss';
-import './MusicPlayerAnimation.scss'
 
 import { CSSTransition } from 'react-transition-group'
 import classnames from 'classnames'
@@ -19,7 +18,7 @@ import repeat from '../../assets/svg/Repeat.svg'
 const MusicPlayerMobile = forwardRef((props, progressRef) => {
 
     const { playing, setRepeat, setShuffle, shuffleActive, repeatActive, song,
-        playPauseHandler, changeMusicTime, changeVolume, songTime, previousSong, nextSong } = props;
+        playPauseHandler, changeMusicTime, songTime, previousSong, nextSong } = props;
 
     // const history = useHistory();
     // const location = useLocation();
@@ -35,57 +34,47 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
     // })
 
 
-    const [full, isFull] = useState(false)
+    const [show, setShow] = useState(false)
 
     const openFullMusicPlayer = () => {
-        isFull(true)
+        const overflow = show ? 'visible' : 'hidden'
+        document.body.style.overflow = overflow;
+        setShow(prev => !prev)
     }
 
-    const classNames = classnames([styles.container], {
-        [styles.full]: full
-    })
-
-    const size = full ? 20 : 20;
+    const size = show ? 20 : 20;
 
     return (
-        <div className={classNames} onClick={openFullMusicPlayer}>
-            <CSSTransition in={full} classNames='player' timeout={1200}>
-                <>
-                    <div className={styles.musicPlayer}>
-                        <CSSTransition in={full} classNames='cover' timeout={1200}>
-                            <img className={styles.cover} src={song.cover} alt="music cover" />
-                        </CSSTransition>
-                        <CSSTransition in={full} classNames='song' timeout={1200}>
-                            <div className={styles.song} >
-                                <p >Ariana grandsdsadasda</p>
-                                <p>stuck with U</p>
-                            </div>
-                        </CSSTransition>
-                        <MusicProgressBar ref={progressRef} callback={changeMusicTime} />
-                        <CSSTransition in={full} classNames='icons' timeout={1200}>
-                            <ul className={styles.icons} >
-                                <li onClick={setShuffle}>
-                                    <Icon src={shuffle} size={size} />
-                                </li>
-                                <li onClick={previousSong}>
-                                    <Icon src={previous} size={size} />
-                                </li>
-                                <li onClick={playPauseHandler}>
-                                    <Icon src={playing} size={size} />
-                                </li>
-                                <li onClick={nextSong}>
-                                    <Icon src={next} size={size} />
-                                </li>
-                                <li onClick={setRepeat}>
-                                    <Icon src={repeat} size={size} />
-                                </li>
-                            </ul>
-                        </CSSTransition>
-                    </div>
-                    <span className={styles.progress}></span>
-                </>
-            </CSSTransition>
-        </div>
+        <CSSTransition in={show} classNames={{ ...styles }} timeout={1200} >
+            <div className={styles.player} onClick={openFullMusicPlayer}>
+                <img className={styles.cover} src={song.cover} alt="music cover" />
+                <div className={styles.song} >
+                    <p className={styles.artist}>{song.artist_name}</p>
+                    <p className={styles.title}>{song.title}</p>
+                </div>
+                <div className={styles.progress}>
+                    <p></p>
+                    <MusicProgressBar ref={progressRef} callback={changeMusicTime} />
+                </div>
+                <ul className={styles.controller} onClick={e => e.stopPropagation()}>
+                    <li onClick={setShuffle}>
+                    <Icon src={shuffle} fill={shuffleActive} size={size} />
+                </li>
+                <li onClick={previousSong}>
+                    <Icon src={previous} size={size} />
+                </li>
+                <li onClick={playPauseHandler}>
+                    <Icon src={playing} size={size} />
+                </li>
+                <li onClick={nextSong}>
+                    <Icon src={next} size={size} />
+                </li>
+                <li onClick={setRepeat}>
+                    <Icon src={repeat} fill={repeatActive} size={size} />
+                </li>
+                </ul>
+            </div>
+        </CSSTransition >
     )
 }
 )
