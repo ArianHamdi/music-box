@@ -1,8 +1,7 @@
 import { useState, forwardRef, useEffect } from 'react'
 import styles from './MusicPlayer.mobile.module.scss';
 
-import { CSSTransition } from 'react-transition-group'
-import classnames from 'classnames'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
 
 import Icon from '../Icon/Icon'
 import { useHistory, useLocation } from 'react-router-dom'
@@ -45,18 +44,50 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
         setShow(prev => !prev)
     }
 
+    const coverTransition = {
+        enter: styles.coverEnter,
+        enterActive: styles.coverEnterActive,
+        exit: styles.coverExit,
+        exitActive: styles.coverExitActive,
+    }
+
+    const songTranstion = {
+        enter: styles.songEnter,
+        enterActive: styles.songEnterActive,
+        exit: styles.songExit,
+        exitActive: styles.songExitActive,
+    }
+
     const size = show ? 20 : 20;
 
     return (
         <CSSTransition in={show} classNames={{ ...styles }} timeout={1200} >
             <div className={styles.player} onClick={musicPlayerHandler}>
-                <img className={styles.cover} src={song.cover} alt="music cover" />
-                <div className={styles.song} >
-                    <p className={styles.artist}>{song.artist_name}</p>
-                    <p className={styles.title}>{song.title}</p>
-                </div>
-                <div className={styles.container}>
-                    <ul className={styles.controller} onClick={e => e.stopPropagation()}>
+                <SwitchTransition mode='out-in'>
+                    <CSSTransition
+                        classNames={{ ...coverTransition }}
+                        addEndListener={(node, done) => {
+                            node.addEventListener("transitionend", done, false);
+                        }}
+                        key={song.cover}>
+                        <img className={styles.cover} src={song.cover} alt="music cover" />
+                    </CSSTransition>
+                </SwitchTransition>
+                <SwitchTransition mode='out-in'>
+                    <CSSTransition
+                        classNames={{ ...songTranstion }}
+                        addEndListener={(node, done) => {
+                            node.addEventListener("transitionend", done, false);
+                        }}
+                        key={song.title}>
+                        <div className={styles.song} >
+                            <p className={styles.artist}>{song.artist_name}</p>
+                            <p className={styles.title}>{song.title}</p>
+                        </div>
+                    </CSSTransition>
+                </SwitchTransition>
+                <div className={styles.container} onClick={e => e.stopPropagation()}>
+                    <ul className={styles.controller} >
                         <li onClick={setShuffle}>
                             <Icon src={shuffle} fill={shuffleActive} size={size} />
                         </li>

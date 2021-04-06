@@ -13,7 +13,7 @@ const NaivgationDesktop = () => {
                 <NavLink className={styles.navLink} activeClassName={styles.navLinkActive} to='/' exact>Home</NavLink>
                 <NavLink className={styles.navLink} activeClassName={styles.navLinkActive} to='/category'>Category</NavLink>
                 <NavLink className={styles.navLink} activeClassName={styles.navLinkActive} to='/about'>About</NavLink>
-                <Search />
+                {/* <Search /> */}
             </div>
         </Navbar>
     )

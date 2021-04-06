@@ -1,0 +1,18 @@
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-dark-2);
+
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: translateX(10%);
+        object-fit: cover;
+        z-index: 2;
+    }
+}
+
+.redirect {
+}

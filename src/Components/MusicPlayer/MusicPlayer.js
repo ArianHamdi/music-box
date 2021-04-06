@@ -34,7 +34,7 @@ const MusicPlayer = () => {
         if (count > 0) {
             setIsPlaying(true)
             audioRef.current.currentTime = 0;
-            progressRef.current.progress.style.width = 0;
+            if (progressRef.currentTime) progressRef.current.progress.style.width = 0;
             const playPromise = audioRef.current.play();
             if (playPromise !== undefined) {
                 playPromise

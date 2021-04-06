@@ -9,6 +9,7 @@ const getArtistInformation = async id => {
     const { data } = await axios.get(`/artist/${id}`);
     const { name, nb_fan: fans, picture_medium: picture, } = data;
     return { name, fans, picture };
+
 }
 
 const getArtistPlaylist = async id => {
@@ -24,6 +25,7 @@ const getArtistPlaylist = async id => {
 
 const getArtistAlbums = async id => {
     const { data } = await axios.get(`/artist/${id}/albums`);
+    // if (data.error) throw Error('NoRetry')
     return data.data;
 }
 

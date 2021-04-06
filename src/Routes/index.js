@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AppLayoutRoute from '../Layout/AppLayoutRoute';
 
 import ScrollToTop from '../Components/ScrollToTop/ScrollToTop'
@@ -9,6 +9,7 @@ import Library from '../Pages/Library/Library'
 import Genre from '../Pages/Genre/Genre'
 import Artist from '../Pages/Artist/Artist'
 import Album from '../Pages/Album/Album'
+import Redirect from '../Components/Redirect/Redirect'
 
 const Routes = () => (
 
@@ -22,6 +23,7 @@ const Routes = () => (
             <AppLayoutRoute path='/artist/:id' component={Artist} />
             <AppLayoutRoute path='/album/:id' component={Album} />
             <AppLayoutRoute path='/about' exact component={Landing} />
+            <Route component={Redirect} />
         </Switch>
     </Router >
 )

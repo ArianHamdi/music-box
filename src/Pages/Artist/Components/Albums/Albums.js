@@ -10,11 +10,17 @@ const Albums = ({ id, picture, theme }) => {
 
     const [showAll, setShowAll] = useState(false)
 
-    const { data: albums } = useArtistAlbums(id);
+    const { data: albums, error, status } = useArtistAlbums(id);
+
+    // console.log('albums', albums);
+    // console.log('error', error);
+    // console.log(status);
 
     const { width } = useDimentions();
 
     if (!albums) return null;
+
+    // return null
 
     const showHandler = () => {
         setShowAll(prev => !prev)

@@ -4,14 +4,17 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
+    background-color: var(--color-dark-2);
+    padding: 2rem;
+    border-radius: 15px;
 }
 
 .loading {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10rem;
-    height: 10rem;
+    width: 9rem;
+    height: 9rem;
     position: relative;
 }
 .loading div {

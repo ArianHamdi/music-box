@@ -18,6 +18,11 @@
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
     }
+    .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
 
     .cover {
         width: 6rem;
@@ -40,6 +45,7 @@
         display: none;
 
         .time {
+            margin-top: 0.2rem;
             display: flex;
             justify-content: space-between;
             font-size: 1.4rem;
@@ -74,22 +80,6 @@
     transition-property: width, height, bottom;
 }
 
-.enterActive,
-.exitActive {
-    & > * {
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-}
-
-.enterDone,
-.exitDone {
-    & > * {
-        opacity: 1;
-        transition: opacity 0.3s;
-    }
-}
-
 .enterDone,
 .exit {
     flex-direction: column;
@@ -98,17 +88,16 @@
     .cover {
         width: 30vmax;
         height: 30vmax;
-        animation: to-bottom 1s;
+        transition: all 1s;
     }
     .song {
         margin: 3rem auto auto auto;
         text-align: center;
         font-size: 2rem;
-        .artist {
-            animation: to-left 1s;
-        }
-        .title {
-            animation: to-right 1s;
+
+        & > * {
+            transform: translateX(0);
+            transition: all 1s;
         }
     }
 
@@ -136,6 +125,36 @@
     }
 }
 
+.enterActive,
+.exitActive {
+    & > * {
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .cover {
+        transition: all 0.3s;
+    }
+
+    .title {
+        transform: translateX(10rem);
+        transition-delay: 0.4s;
+    }
+
+    .artist {
+        transform: translateX(-10rem);
+        transition-delay: 0.4s;
+    }
+}
+
+.enterDone,
+.exitDone {
+    & > * {
+        opacity: 1;
+        transition: opacity 0.3s;
+    }
+}
+
 .exitActive {
     width: 95%;
     height: 9rem;
@@ -144,29 +163,42 @@
     transition: all 0.7s 0.3s;
 }
 
-@keyframes to-bottom {
-    from {
-        transform: translateY(-4rem);
-    }
-    to {
-        transform: translateY(0);
-    }
+.coverEnter {
+    transform: scale(0.9);
+    opacity: 0;
 }
 
-@keyframes to-right {
-    from {
-        transform: translateX(-10rem);
-    }
-    to {
-        transform: translateX(0);
-    }
+.coverEnterActive {
+    transform: scale(1);
+    opacity: 1;
+    transition: all 0.4s !important;
 }
 
-@keyframes to-left {
-    from {
-        transform: translateX(10rem);
-    }
-    to {
-        transform: translateX(0);
-    }
+.coverExit {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.coverExitActive {
+    transform: scale(1.1);
+    opacity: 0;
+    transition: all 0.4s !important;
+}
+
+.songEnter {
+    opacity: 0;
+}
+
+.songEnterActive {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.songExit {
+    opacity: 1;
+}
+
+.songExitActive {
+    opacity: 0;
+    transition: opacity 0.2s;
 }

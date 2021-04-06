@@ -13,6 +13,9 @@ const App = () => {
         // staleTime: 1 * 60 * 1000,
         staleTime: Infinity,
         refetchOnWindowFocus: false,
+        retry: (failureCount, error) => {
+          return failureCount < 3 && error.message !== 'NoRetry'
+        }
       }
     }
   });
