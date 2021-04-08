@@ -33,7 +33,7 @@ const playlistReducer = (draft, action) => {
         case 'next': {
             draft.index = (draft.index + 1) % length;
             draft.song = draft.isShuffle ? nth(draft.shuffledList, draft.index) : nth(draft.playlist, draft.index);
-            draft.count++;
+            // draft.count++;
             return;
         }
         case 'previous': {
@@ -81,7 +81,7 @@ const playlistReducer = (draft, action) => {
         }
         case 'tracks': {
             payload.playlist.every((song, index) => {
-                if (song.id === draft.playlist[0].id) {
+                if (song.id === draft.playlist?.[0].id) {
                     draft.index = index
                     return false
                 }
@@ -125,7 +125,6 @@ const useSong = () => {
             // localStorage.setItem('playlist', playlist)
         }
         window.addEventListener('unload', unloadHandler)
-
         return () => window.removeEventListener('unload', unloadHandler)
     })
 

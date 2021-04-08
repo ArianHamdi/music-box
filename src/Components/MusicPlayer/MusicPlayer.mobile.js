@@ -1,4 +1,4 @@
-import { useState, forwardRef, useEffect } from 'react'
+import { useState, forwardRef, useEffect, useRef } from 'react'
 import styles from './MusicPlayer.mobile.module.scss';
 
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
@@ -13,27 +13,34 @@ import next from '../../assets/svg/NextSong.svg'
 import shuffle from '../../assets/svg/Shuffle.svg'
 import repeat from '../../assets/svg/Repeat.svg'
 
+import './test.scss'
+
 
 const MusicPlayerMobile = forwardRef((props, progressRef) => {
 
     const { playing, setRepeat, setShuffle, shuffleActive, repeatActive, song,
         playPauseHandler, changeMusicTime, currentTime, duration, previousSong, nextSong } = props;
 
-    // const history = useHistory();
-    // const location = useLocation();
-
-    // useEffect(() => {
-    //     const unblock = history.block((location, action) => {
-    //         return false
-    //     })
-
-    //     return () => {
-    //         unblock();
-    //     }
-    // })
-
+    const history = useHistory();
     const [show, setShow] = useState(false)
 
+
+    //prevent back button when modal is open
+    useEffect(() => {
+        const unblock = history.block(() => {
+            if (show) {
+                setShow(false);
+                return false;
+            }
+            return true;
+        });
+
+        return () => {
+            unblock();
+        };
+    }, [show]);
+
+    //set overflow visible when switch to desktop mode
     useEffect(() => {
         return () => document.body.style.overflow = 'visible'
     }, [])
@@ -47,15 +54,19 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
     const coverTransition = {
         enter: styles.coverEnter,
         enterActive: styles.coverEnterActive,
+        enterDone: styles.coverEnterDone,
         exit: styles.coverExit,
         exitActive: styles.coverExitActive,
+        exitDone: styles.coverExitDone
     }
 
     const songTranstion = {
         enter: styles.songEnter,
         enterActive: styles.songEnterActive,
+        enterDone: styles.songEnterDone,
         exit: styles.songExit,
         exitActive: styles.songExitActive,
+        exitDone: styles.songExitDone
     }
 
     const size = show ? 20 : 20;
@@ -75,7 +86,7 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
                 </SwitchTransition>
                 <SwitchTransition mode='out-in'>
                     <CSSTransition
-                        classNames={{ ...songTranstion }}
+                        classNames='song'
                         addEndListener={(node, done) => {
                             node.addEventListener("transitionend", done, false);
                         }}

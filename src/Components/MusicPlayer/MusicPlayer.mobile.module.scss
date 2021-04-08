@@ -164,23 +164,25 @@
 }
 
 .coverEnter {
-    transform: scale(0.9);
+    // transform: scale(0.9);
     opacity: 0;
 }
 
-.coverEnterActive {
-    transform: scale(1);
+.coverEnterActive,
+.coverEnterDone {
+    // transform: scale(1);
     opacity: 1;
     transition: all 0.4s !important;
 }
 
 .coverExit {
-    transform: scale(1);
+    // transform: scale(1);
     opacity: 1;
 }
 
-.coverExitActive {
-    transform: scale(1.1);
+.coverExitActive,
+.coverExitDone {
+    // transform: scale(1.1);
     opacity: 0;
     transition: all 0.4s !important;
 }
@@ -189,7 +191,8 @@
     opacity: 0;
 }
 
-.songEnterActive {
+.songEnterActive,
+.songEnterDone {
     opacity: 1;
     transition: opacity 0.2s;
 }
@@ -198,7 +201,8 @@
     opacity: 1;
 }
 
-.songExitActive {
+.songExitActive,
+.songExitDone {
     opacity: 0;
     transition: opacity 0.2s;
 }

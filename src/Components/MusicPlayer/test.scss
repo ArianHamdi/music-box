@@ -1,0 +1,19 @@
+.song-enter {
+    opacity: 0;
+}
+
+.song-enter-active,
+.song-enter-done {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.song-exit {
+    opacity: 1;
+}
+
+.song-exit-active,
+.song-exit-done {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
