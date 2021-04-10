@@ -24,7 +24,11 @@
     gap: 2rem;
     animation: show 1s;
 
-    @include media(">xxl"){
+    @include media("<sm") {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+
+    @include media(">xxl") {
         grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
         gap: 1vw;
     }
