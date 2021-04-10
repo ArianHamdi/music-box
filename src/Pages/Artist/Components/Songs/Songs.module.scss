@@ -27,10 +27,12 @@
     grid-template-columns:
         [index-start] 1rem [index-end cover-start] 5rem [cover-end title-start] minmax(min-content, 1fr)
         [title-end artist-start] minmax(10rem, 1fr) [artist-end album-start] minmax(min-content, 1fr)
-        [album-end duration-start] 3rem [duration-end play-start] max-content[play-end];
+        [album-end duration-start] 4rem [duration-end play-start] max-content[play-end];
 
     @include media("<md") {
-        grid-template-columns: [cover-start]7rem[cover-end title-start duration-start]minmax(min-content, 1fr) [title-end duration-end play-start] 2rem [play-end];
+        grid-template-columns:
+            [cover-start]7rem[cover-end title-start duration-start]minmax(min-content, 1fr)
+            [title-end duration-end play-start] 2rem [play-end];
         grid-template-rows: repeat(2, 1fr);
     }
 

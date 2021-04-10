@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import { useDimentions } from '../../Hooks/useDimentions';
 import breakpoints from '../../Constant/breakpoints'
 import MusicPlayerDesktop from './MusicPlayer.desktop'
 import MusicPlayerMobile from './MusicPlayer.mobile'
@@ -9,6 +8,7 @@ import { convertTime } from '../../utilities/utilities'
 
 import Pause from '../../assets/svg/pause.svg'
 import Play from '../../assets/svg/play.svg'
+import { Desktop, Mobile } from '../Responsive/Responsive';
 
 const MusicPlayer = () => {
 
@@ -26,9 +26,6 @@ const MusicPlayer = () => {
         currentTime: 0,
         duration: 0
     })
-
-    const { width } = useDimentions();
-    const Component = width > breakpoints.md ? MusicPlayerDesktop : MusicPlayerMobile;
 
     useEffect(() => {
         if (count > 0) {
@@ -110,13 +107,22 @@ const MusicPlayer = () => {
     const currentTime = convertTime(songTime.currentTime)
     const duration = convertTime(songTime.duration)
 
+    const props = {
+        ref: progressRef, changeVolume, currentTime, duration,
+        song, playPauseHandler, changeMusicTime,
+        setRepeat, setShuffle, playing, shuffleActive,
+        repeatActive, nextSong, previousSong,
+    }
+
     return (
         <>
             <audio ref={audioRef} src={song.preview} onEnded={endSongHandler} onTimeUpdate={updateMusicTime}></audio>
-            <Component ref={progressRef} changeVolume={changeVolume} currentTime={currentTime} duration={duration}
-                song={song} playPauseHandler={playPauseHandler} changeMusicTime={changeMusicTime}
-                setRepeat={setRepeat} setShuffle={setShuffle} playing={playing} shuffleActive={shuffleActive}
-                repeatActive={repeatActive} nextSong={nextSong} previousSong={previousSong} />
+            <Desktop >
+                <MusicPlayerDesktop {...props} />
+            </Desktop>
+            <Mobile>
+                <MusicPlayerMobile {...props} />
+            </Mobile>
         </>
     )
 }

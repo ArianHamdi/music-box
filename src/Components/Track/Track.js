@@ -16,7 +16,7 @@ const Track = ({ track_id, preview, album_id, artist_id, artist_picture, artist_
             info: { type: 'track', id: track_id }
         }
         dispatch({ type: 'playlist', payload })
-        history.push(`/album/${album_id}`, { artist_picture, cover, artist_id, play: true });
+        history.push(`/album/${album_id}`, { artist_picture, cover, artist_id, autoPlay: true });
     }
 
     return (

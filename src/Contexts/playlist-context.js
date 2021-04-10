@@ -33,7 +33,7 @@ const playlistReducer = (draft, action) => {
         case 'next': {
             draft.index = (draft.index + 1) % length;
             draft.song = draft.isShuffle ? nth(draft.shuffledList, draft.index) : nth(draft.playlist, draft.index);
-            // draft.count++;
+            draft.count++;
             return;
         }
         case 'previous': {

@@ -15,10 +15,10 @@ const getArtistInformation = async id => {
 const getArtistPlaylist = async id => {
     const { data } = await axios.get(`/artist/${id}/top?limit=10`);
     const songs = data.data.map(song => {
-        const { cover_medium: cover } = song.album;
+        const { cover_medium: cover, title: album_title } = song.album;
         const { name: artist_name, id: artist_id } = song.artist
         const { id, title, duration, preview } = song;
-        return { id, title, artist_name, artist_id, cover, duration, preview }
+        return { id, title, artist_name, artist_id, cover, album_title, duration, preview }
     })
     return songs;
 }
@@ -61,19 +61,15 @@ const getTopArtists = async () => {
     return data.data
 }
 
-const getSearchResult = async query => {
-    const searchArtists = axios.get(`/search/artist?q=${query}&limit=5`)
-    const searchAlbums = axios.get(`/search/album?q=${query}&limit=5`)
+const getSearchResult = async (query, type) => {
+    //remove last char and convert to lowercase
+    const editedType = type.slice(0, -1).toLowerCase()
 
-    const { data: artists } = await searchArtists;
-    const { data: albums } = await searchAlbums;
+    const { data } = await axios.get(`/search/${editedType}?q=${query}&limit=5`)
 
-    const data = {
-        Artists: artists.data,
-        Albums: albums.data
-    }
+    if (!data.data.length) throw new Error('NoRetry')
 
-    return data
+    return data.data;
 }
 
 

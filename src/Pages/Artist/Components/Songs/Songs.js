@@ -4,19 +4,17 @@ import styles from './Songs.module.scss';
 import { usePlaylistDispatch, useSongId } from '../../../../Contexts/playlist-context'
 
 import colors from '../../../../Constant/colors'
+import { Desktop } from '../../../../Components/Responsive/Responsive'
 import { useArtistPlaylist } from '../../../../Hooks/useAPI'
 import { useDimentions } from '../../../../Hooks/useDimentions'
 import { convertTime, shorten } from '../../../../utilities/utilities'
 import Icon from '../../../../Components/Icon/Icon'
-
 import play from '../../../../assets/svg/play.svg'
 
 const Songs = ({ id }) => {
 
     const { data: playlist } = useArtistPlaylist(id)
     const activeId = useSongId();
-
-    const { width } = useDimentions();
 
     const dispatch = usePlaylistDispatch();
 
@@ -41,20 +39,18 @@ const Songs = ({ id }) => {
     const songItems = playlist.map((song, index) => {
 
         const color = song.id === activeId ? colors.tertiary : null;
-        // remove some decsriptions in small screen
-        const desktopView = width >= 768 ? <>
-            <h6 className={styles.index}>{index + 1}</h6>
-            <p className={styles.artist}>{song.artist_name}</p>
-            <p className={styles.album}>{song.title}</p>
-        </> : null
 
         return (
             <div className={styles.song} style={{ color }} key={index} onClick={() => playSong(index)} >
                 <img className={styles.cover} src={song.cover} alt='music cover' />
-                <p className={styles.title}>{shorten(song.title, width)}</p>
+                <p className={styles.title}>{shorten(song.title)}</p>
                 <p className={styles.duration}>{convertTime(song.duration)}</p>
                 <Icon className={styles.play} src={play} size={20} fill='white' />
-                {desktopView}
+                <Desktop>
+                    <h6 className={styles.index}>{index + 1}</h6>
+                    <p className={styles.artist}>{song.artist_name}</p>
+                    <p className={styles.album}>{song.album_title}</p>
+                </Desktop>
             </div>
         )
     })

@@ -28,10 +28,7 @@ html {
   }
 
   @include media("<lg") {
-    font-size: 56.25%; // 9px
-  }
-  @include media("<md") {
-    font-size: 50%; // 8px
+    font-size: 60%; // 9px
   }
 }
 

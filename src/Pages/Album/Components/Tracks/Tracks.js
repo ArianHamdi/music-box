@@ -31,7 +31,7 @@ const Tracks = ({ tracks, album_id }) => {
                 <h6 className={styles.index}>{index + 1}</h6>
                 <p className={styles.title}>{title}</p>
                 <p className={styles.duration}>{convertTime(duration)}</p>
-                <Icon src={play} size={20} />
+                <Icon className={styles.icon} src={play} size={20} />
             </div >
         )
     })

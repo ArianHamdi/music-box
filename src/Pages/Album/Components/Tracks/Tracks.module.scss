@@ -35,7 +35,7 @@
 .track {
     display: flex;
     align-items: center;
-    padding: 1.5rem;
+    padding:1.5rem 1rem;
     cursor: pointer;
     transition: all 0.2s;
 
@@ -45,7 +45,7 @@
 
     .index {
         font-size: 1.4rem;
-        width: 3.5rem;
+        width: 3rem;
 
         @include media("<md") {
             font-size: 1.6rem;
@@ -62,11 +62,18 @@
     }
     .duration {
         font-size: 1.4rem;
-        margin: 0 2rem;
+        min-width: 4rem;
+        margin: 0 1.5rem;
+
         font-weight: 700;
+        text-align: right;
 
         @include media("<md") {
             font-size: 1.6rem;
         }
+    }
+
+    .icon {
+        min-width: 2.5rem;
     }
 }

@@ -41,9 +41,8 @@ const useTopArtists = () => {
     return useQuery('top_artists', api.getTopArtists)
 }
 
-const useSearchResult = query => {
-    // console.log(query);
-    return useQuery(['search', query], () => api.getSearchResult(query), { enabled: !!query })
+const useSearchResult = (query, type) => {
+    return useQuery(['search', type, query], () => api.getSearchResult(query, type), { enabled: !!query })
 }
 
 

@@ -28,7 +28,7 @@ const Album = () => {
     const { color } = useColor(cover);
 
     useEffect(() => {
-        if (data && state?.play) {
+        if (data && state?.autoPlay) {
             dispatch({ type: 'tracks', payload: { playlist: data.tracks } })
         }
     }, [data])

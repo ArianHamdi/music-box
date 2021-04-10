@@ -16,23 +16,23 @@ const convertTime = time => {
 }
 
 const shorten = (word, size) => {
-    let length;
-    if (size < breakpoints.sm) {
-        length = 25
-    }
-    else if (size < breakpoints.md) {
-        length = 45
-    }
-    else if (size < breakpoints.lg) {
-        length = 60;
-    }
-    else {
-        length = 80
-    }
+    // let length;
+    // if (size < breakpoints.sm) {
+    //     length = 25
+    // }
+    // else if (size < breakpoints.md) {
+    //     length = 45
+    // }
+    // else if (size < breakpoints.lg) {
+    //     length = 60;
+    // }
+    // else {
+    //     length = 80
+    // }
 
-    if (length > word.length) return word;
+    if (35 > word.length) return word;
 
-    const shortenWord = word.slice(0, length) + ' ...';
+    const shortenWord = word.slice(0, 35) + ' ...';
 
     return shortenWord;
 }
