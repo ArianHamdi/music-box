@@ -1,8 +1,8 @@
-import styles from './Navigation.desktop.module.scss';
+import styles from './NavigationDesktop.module.scss';
 import { NavLink } from 'react-router-dom'
 
-import Navbar from '../Navbar/Nabbar'
-import Search from '../Search/Search'
+import Navbar from '../../Navbar/Nabbar'
+import Search from '../../Search/Search'
 
 const NaivgationDesktop = () => {
 

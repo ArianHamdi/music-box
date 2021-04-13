@@ -8,13 +8,10 @@ import { useHistory, useLocation } from 'react-router-dom'
 
 import MusicProgressBar from '../MusicProgressBar/MusicProgressBar';
 
-import previous from '../../assets/svg/PreviousSong.svg'
-import next from '../../assets/svg/NextSong.svg'
+import previous from '../../assets/svg/backward.svg'
+import next from '../../assets/svg/forward.svg'
 import shuffle from '../../assets/svg/Shuffle.svg'
 import repeat from '../../assets/svg/Repeat.svg'
-
-import './test.scss'
-
 
 const MusicPlayerMobile = forwardRef((props, progressRef) => {
 
@@ -51,52 +48,16 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
         setShow(prev => !prev)
     }
 
-    const coverTransition = {
-        enter: styles.coverEnter,
-        enterActive: styles.coverEnterActive,
-        enterDone: styles.coverEnterDone,
-        exit: styles.coverExit,
-        exitActive: styles.coverExitActive,
-        exitDone: styles.coverExitDone
-    }
-
-    const songTranstion = {
-        enter: styles.songEnter,
-        enterActive: styles.songEnterActive,
-        enterDone: styles.songEnterDone,
-        exit: styles.songExit,
-        exitActive: styles.songExitActive,
-        exitDone: styles.songExitDone
-    }
-
     const size = show ? 20 : 20;
 
     return (
         <CSSTransition in={show} classNames={{ ...styles }} timeout={1200} >
             <div className={styles.player} onClick={musicPlayerHandler}>
-                <SwitchTransition mode='out-in'>
-                    <CSSTransition
-                        classNames={{ ...coverTransition }}
-                        addEndListener={(node, done) => {
-                            node.addEventListener("transitionend", done, false);
-                        }}
-                        key={song.cover}>
-                        <img className={styles.cover} src={song.cover} alt="music cover" />
-                    </CSSTransition>
-                </SwitchTransition>
-                <SwitchTransition mode='out-in'>
-                    <CSSTransition
-                        classNames='song'
-                        addEndListener={(node, done) => {
-                            node.addEventListener("transitionend", done, false);
-                        }}
-                        key={song.title}>
-                        <div className={styles.song} >
-                            <p className={styles.artist}>{song.artist_name}</p>
-                            <p className={styles.title}>{song.title}</p>
-                        </div>
-                    </CSSTransition>
-                </SwitchTransition>
+                <img className={styles.cover} src={song.cover} alt="music cover" />
+                <div className={styles.song} >
+                    <p className={styles.artist}>{song.artist_name}</p>
+                    <p className={styles.title}>{song.title}</p>
+                </div>
                 <div className={styles.container} onClick={e => e.stopPropagation()}>
                     <ul className={styles.controller} >
                         <li onClick={setShuffle}>

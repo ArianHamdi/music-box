@@ -13,7 +13,8 @@
         transition: all 0.2s;
     }
 
-    &:hover {
+    &:hover,
+    &:active {
         background-color: #6f9af1f5;
         h5 {
             color: var(--color-dark-1);

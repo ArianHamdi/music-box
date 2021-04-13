@@ -1,5 +1,6 @@
-import NavigationMobile from './Navigation.mobile'
-import NavigationDesktop from './Navigation.desktop'
+import NavigationMobile from './NavigationMobile/NavigationMobile'
+import NavigationDesktop from './NavigationDesktop/NavigationDesktop'
+
 import { Desktop, Mobile } from '../Responsive/Responsive'
 
 const Navigation = () => {

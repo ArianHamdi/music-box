@@ -7,11 +7,15 @@
     flex-direction: column;
     align-items: center;
 
-    @include media("<md"){
-        width: 50rem;
+    @include media("<md") {
+        width: 55rem;
         height: 5rem;
     }
 
+    @include media("<sm") {
+        width: 50rem;
+        height: 5rem;
+    }
 }
 
 .input {

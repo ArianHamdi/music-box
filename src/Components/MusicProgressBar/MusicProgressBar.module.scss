@@ -1,13 +1,14 @@
 .container {
-    padding: 5px 0;
+    @include no-select;
+    padding: 10px 0;
     cursor: pointer;
-
 }
 
 .progress {
-    height: 3px;
+    height: 4px;
     border-radius: 10rem;
     width: 40rem;
+    transition: height 0.2s;
     @include media("<md") {
         width: 35rem;
     }
@@ -34,5 +35,10 @@
         border-radius: 100rem;
         background-color: var(--color-secondary);
         transition: all 0.2s ease-out;
+
+        @include media("<md") {
+            width: 12px;
+            height: 12px;
+        }
     }
 }

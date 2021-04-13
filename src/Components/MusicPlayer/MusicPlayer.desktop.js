@@ -5,8 +5,8 @@ import Icon from '../Icon/Icon'
 
 import shuffle from '../../assets/svg/Shuffle.svg';
 import repeat from '../../assets/svg/Repeat.svg';
-import previous from '../../assets/svg/PreviousSong.svg';
-import next from '../../assets/svg/NextSong.svg';
+import previous from '../../assets/svg/backward.svg';
+import next from '../../assets/svg/forward.svg';
 
 import volume from '../../assets/svg/Volume.svg';
 

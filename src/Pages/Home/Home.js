@@ -25,11 +25,12 @@ const HomePage = () => {
                     <Search />
                 </div>
             </Mobile>
+            <Genres />
             {!(artists || albums || tracks) && <Loading />}
-            {(artists || albums || tracks) && < Genres />}
+            {/* {(artists || albums || tracks) && < Genres />} */}
             <TopArtists artists={artists} />
-            <TopTrack tracks={tracks} />
             <TopAlbums albums={albums} />
+            <TopTrack tracks={tracks} />
         </section>
     )
 }
