@@ -21,7 +21,7 @@ const Artist = () => {
 
     const picture = state?.artist_picture || artist?.picture;
 
-    const { color, theme } = useColor(picture);
+    const { color } = useColor(picture);
 
     if (isError) return <Redirect />
 
@@ -32,7 +32,7 @@ const Artist = () => {
             <img className={styles.background} src={picture} alt="artist" />
             {picture && <> <Header id={id} picture={picture} color={color} />
                 <Songs id={id} />
-                <Albums id={id} picture={picture} theme={theme} />
+                <Albums id={id} picture={picture} />
                 <Related id={id} />
             </>}
         </section>

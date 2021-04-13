@@ -1,11 +1,12 @@
 .album {
+    @include no-select;
     background-color: var(--color-dark-2);
     min-height: 100vh;
     padding: 5vw 7vw;
     position: relative;
     z-index: 1;
-    
-    @include media("<sm"){
+
+    @include media("<sm") {
         padding: 3vw 5vw;
     }
 }

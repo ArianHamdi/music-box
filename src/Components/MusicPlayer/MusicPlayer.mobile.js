@@ -4,7 +4,7 @@ import styles from './MusicPlayer.mobile.module.scss';
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 
 import Icon from '../Icon/Icon'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import MusicProgressBar from '../MusicProgressBar/MusicProgressBar';
 
@@ -39,20 +39,32 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
 
     //set overflow visible when switch to desktop mode
     useEffect(() => {
-        return () => document.body.style.overflow = 'visible'
+        return () => changeBodyOverflow('visible')
     }, [])
 
-    const musicPlayerHandler = () => {
-        const overflow = show ? 'visible' : 'hidden'
-        document.body.style.overflow = overflow
-        setShow(prev => !prev)
+    const changeBodyOverflow = overflow => {
+        document.body.style.overflow = overflow;
     }
 
-    const size = show ? 20 : 20;
+    const openMusicPlayer = () => {
+        changeBodyOverflow('hidden')
+        setShow(true)
+    }
+
+    const closeMusicPlayer = event => {
+        event.stopPropagation();
+        changeBodyOverflow('visible')
+        setShow(false)
+    }
+
+    const size = 20;
 
     return (
         <CSSTransition in={show} classNames={{ ...styles }} timeout={1200} >
-            <div className={styles.player} onClick={musicPlayerHandler}>
+            <div className={styles.player} onClick={openMusicPlayer}>
+                <div className={styles.closeContainer} onClick={closeMusicPlayer}>
+                    <div className={styles.closeParent}></div>
+                </div>
                 <img className={styles.cover} src={song.cover} alt="music cover" />
                 <div className={styles.song} >
                     <p className={styles.artist}>{song.artist_name}</p>

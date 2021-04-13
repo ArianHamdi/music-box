@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './Songs.module.scss';
+import Button from '../../../../Components/Button/Button'
 
 import { usePlaylistDispatch, useSongId } from '../../../../Contexts/playlist-context'
 
@@ -57,12 +58,13 @@ const Songs = ({ id }) => {
 
     const songsShown = toggle ? songItems : songItems.slice(0, 5);
 
-    const title = toggle ? 'show 5 less' : 'show 5 more';
-
     return (
-        <div className={styles.songs} >
-            {songsShown}
-        </div>
+        <section>
+            <div className={styles.songs} >
+                {songsShown}
+            </div>
+            {songItems.length > 5 && <Button active={toggle} onClick={toggleHandler} />}
+        </section >
     )
 }
 

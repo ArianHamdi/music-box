@@ -1,5 +1,6 @@
 .category {
     padding: 6vw;
+    min-height: 100vh;
     background-color: var(--color-dark-2);
 }
 
@@ -19,7 +20,6 @@
     display: grid;
     align-content: start;
     justify-content: center;
-    min-height: 100vh;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 2rem;
     animation: show 1s;

@@ -1,14 +1,14 @@
 .artist {
+    @include no-select;
     background-color: var(--color-dark-2);
     min-height: 100vh;
     padding: 5vw 7vw;
     position: relative;
     z-index: 1;
 
-    @include media("<md"){
+    @include media("<md") {
         padding: 5vw 3vw;
     }
-
 }
 
 .background {

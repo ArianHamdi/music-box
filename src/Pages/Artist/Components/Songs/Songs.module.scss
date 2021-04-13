@@ -5,6 +5,7 @@
     color: white;
     margin: auto;
     width: 90%;
+    margin-bottom: 4rem;
 
     @include media("<md") {
         width: 100%;

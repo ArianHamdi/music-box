@@ -4,22 +4,14 @@
     transition: all 0.2s;
     cursor: pointer;
 
-    &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 5rem;
-        height: 5rem;
-        background-color: red;
-        z-index: 10000;
-    }
-
     &:hover {
         @include media(">md") {
             fill: var(--color-tertiary);
         }
+    }
+
+    &:active {
+        fill: var(--color-tertiary);
     }
 }
 

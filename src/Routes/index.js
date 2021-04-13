@@ -21,7 +21,7 @@ const Routes = () => (
             <AppLayoutRoute path='/artist/:id' component={Artist} />
             <AppLayoutRoute path='/album/:id' component={Album} />
             <AppLayoutRoute path='/about' exact component={Landing} />
-            <Route component={Redirect} />
+            <AppLayoutRoute component={Redirect} />
         </Switch>
     </Router >
 )
