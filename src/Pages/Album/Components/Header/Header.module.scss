@@ -1,6 +1,6 @@
 .header {
-    margin: 4rem;
     display: grid;
+    margin:4rem;
     grid-template-columns: max-content 1fr max-content;
     column-gap: 4rem;
     align-items: center;
@@ -9,7 +9,7 @@
         grid-template-columns: max-content 1fr;
         grid-template-rows: repeat(2, max-content);
         row-gap: 3rem;
-        margin: 2rem;
+        margin: 0rem;
     }
 }
 
