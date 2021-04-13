@@ -11,8 +11,7 @@ const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        // staleTime: 1 * 60 * 1000,
-        staleTime: Infinity,
+        staleTime: 30 * 60 * 1000,
         refetchOnWindowFocus: false,
         retry: (failureCount, error) => {
           return failureCount < 3 && error.message !== 'NoRetry'
@@ -33,7 +32,7 @@ const App = () => {
         </div>
 
       </PlaylistProvider>
-      {/* <ReactQueryDevtools /> */}
+      <ReactQueryDevtools />
     </QueryClientProvider>
   )
 }
