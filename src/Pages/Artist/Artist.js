@@ -26,7 +26,7 @@ const Artist = () => {
     if (isError) return <Redirect />
 
     return (
-        <section className={styles.artist} >
+        <section className={styles.artist}>
             <Title value={artist?.name} />
             {isLoading && <Loading />}
             <img className={styles.background} src={picture} alt="artist" />

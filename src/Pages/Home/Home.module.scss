@@ -4,7 +4,8 @@
     background-color: var(--color-dark-2);
 
     @include media("<md") {
-        padding: 4rem 0;
+        
+        padding:4rem 0 16rem;
     }
 }
 

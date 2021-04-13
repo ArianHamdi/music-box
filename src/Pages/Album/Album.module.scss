@@ -6,6 +6,10 @@
     position: relative;
     z-index: 1;
 
+    @include media("<md") {
+        padding-bottom: 16rem;
+    }
+
     @include media("<sm") {
         padding: 3vw 5vw;
     }

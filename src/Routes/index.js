@@ -11,7 +11,6 @@ import Album from '../Pages/Album/Album'
 import Redirect from '../Components/Redirect/Redirect'
 
 const Routes = () => (
-
     <Router>
         <ScrollToTop />
         <Switch >

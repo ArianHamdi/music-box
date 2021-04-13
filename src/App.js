@@ -1,3 +1,4 @@
+import styles from './App.module.scss'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import PlaylistProvider from './Contexts/playlist-context'
@@ -27,7 +28,9 @@ const App = () => {
 
         <InitialPlaylist />
 
-        <Routes />
+        <div className={styles.app}>
+          <Routes />
+        </div>
 
       </PlaylistProvider>
       {/* <ReactQueryDevtools /> */}

@@ -9,9 +9,10 @@
 
     @include media("<md") {
         grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        padding-bottom: 16rem;
     }
 
-    @include media(">xxl"){
+    @include media(">xxl") {
         grid-template-columns: repeat(auto-fit, minmax(16vw, 1fr));
     }
 }

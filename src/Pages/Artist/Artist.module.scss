@@ -5,9 +5,10 @@
     padding: 5vw 7vw;
     position: relative;
     z-index: 1;
+    scroll-behavior: smooth;
 
     @include media("<md") {
-        padding: 5vw 3vw;
+        padding: 5vw 3vw 16rem;
     }
 }
 

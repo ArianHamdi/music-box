@@ -2,6 +2,10 @@
     padding: 6vw;
     min-height: 100vh;
     background-color: var(--color-dark-2);
+
+    @include media("<md") {
+        padding-bottom: 18rem;
+    }
 }
 
 .title {
