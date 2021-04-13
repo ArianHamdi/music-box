@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 const Header = ({ cover, artist_id, artist_picture, artist_name, title, release_date, tracks_number, duration, color }) => {
 
     const history = useHistory();
-    
+
     const goToArtist = () => {
         history.push(`/artist/${artist_id}`, { artist_picture })
     }
@@ -26,9 +26,9 @@ const Header = ({ cover, artist_id, artist_picture, artist_name, title, release_
                 <img className={styles.artist_picture} src={artist_picture} alt="artist picture" onClick={goToArtist} />
             </div>
             <div className={styles.info} style={{ color }}>
-                <h4>{release_year}</h4>
-                <h2>{title}</h2>
-                <h3>{artist_name}</h3>
+                <h4 className={styles.year}>{release_year}</h4>
+                <h2 className={styles.title}>{title}</h2>
+                <h3 className={styles.artist}>{artist_name}</h3>
             </div>
             {duration && <p className={styles.duration} style={{ color }}>{album_count} - {album_duration}</p>}
         </div>

@@ -29,7 +29,7 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
                 setShow(false);
                 return false;
             }
-            return true;
+            return;
         });
 
         return () => {

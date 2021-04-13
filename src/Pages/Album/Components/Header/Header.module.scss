@@ -1,96 +1,79 @@
 .header {
-    display: grid;
-    margin:4rem;
-    grid-template-columns: max-content 1fr max-content;
-    column-gap: 4rem;
-    align-items: center;
+    margin: 2rem;
+    display: flex;
 
     @include media("<md") {
-        grid-template-columns: max-content 1fr;
-        grid-template-rows: repeat(2, max-content);
-        row-gap: 3rem;
-        margin: 0بrem;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem 0;
     }
 }
 
 .cover_container {
     position: relative;
-    width: 17.5rem;
-    height: 17.5rem;
-    border-radius: 15px;
-    box-shadow: 0 1.5rem 4rem black;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 10px;
+    margin-right: 3rem;
+    flex-shrink: 0;
 
     @include media("<md") {
-        width: 15rem;
-        height: 15rem;
-    }
-}
-
-.cover {
-    width: 17.5rem;
-    height: 17.5rem;
-    border-radius: 15px;
-
-    @include media("<md") {
-        width: 15rem;
-        height: 15rem;
-    }
-}
-
-.artist_picture {
-    display: block;
-    position: absolute;
-    top: 95%;
-    left: 95%;
-    transform: translate(-50%, -50%);
-    width: 6rem;
-    height: 6rem;
-    border-radius: 100rem;
-    box-shadow: 0 1.5rem 4rem black;
-    transition: transform 0.2s;
-    cursor: pointer;
-
-    &:hover {
-        transform: translate(-50%, -50%) scale(1.1);
+        margin: 0;
     }
 
-    @include media("<md") {
-        left: 50%;
-        top: 100%;
+    .cover {
+        border-radius: inherit;
+        width: 100%;
+        height: 100%;
     }
 
-    @include media("<sm") {
-        width: 7rem;
-        height: 7rem;
+    .artist_picture {
+        position: absolute;
+        top: 95%;
+        left: 95%;
+        transform: translate(-50%, -50%);
+        width: 6rem;
+        height: 6rem;
+        border-radius: 10rem;
     }
 }
 
 .info {
-    filter: invert(100);
-    h4 {
-        font-size: 3.5rem;
-        margin-bottom: 3rem;
-    }
-    h3 {
-        font-size: 1.6rem;
-    }
-    h2 {
-        font-size: 2.2rem;
-        margin-bottom: 0.8rem;
-
-        @include media("<md") {
-            font-size: 2.4rem;
-        }
-    }
-}
-
-.duration {
-    filter: invert(100);
-    font-size: 1.5rem;
-    font-weight: 700;
-    justify-self: end;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    filter: invert(100%);
 
     @include media("<md") {
-        grid-column: 1 / -1;
+        margin-top: 1rem;
+    }
+
+    .year {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    .artist {
+        font-size: 2.2rem;
+    }
+}
+.duration {
+    display: flex;
+    align-items: flex-end;
+    filter: invert(100%);
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+    margin-left: 1rem;
+
+    @include media("<md") {
+        width: 100%;
+        margin: 0;
+        justify-content: flex-end;
     }
 }
