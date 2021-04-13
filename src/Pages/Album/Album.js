@@ -42,8 +42,8 @@ const Album = () => {
             <Title value={data?.title} />
             {isLoading && <Loading />}
             <img className={styles.background} src={cover} alt="artist" />
-            {cover && artist_picture && <Header cover={cover} artist_picture={artist_picture} artist_id={artist_id}
-                {...data} color={color} />}
+            {/* {cover && artist_picture && <Header cover={cover} artist_picture={artist_picture} artist_id={artist_id}
+                {...data} color={color} />} */}
             <Tracks tracks={data?.tracks} album_id={data?.album_id} />
         </section>
     )

@@ -18,7 +18,7 @@ const NavLink = ({ path, label, icon, exact }) => {
 
     return (
         <div className={linkStyle} onClick={changePageHandler}>
-            <Icon src={icon} size={35} />
+            <Icon src={icon} size={28} />
             <h5>{label}</h5>
         </div >
     )

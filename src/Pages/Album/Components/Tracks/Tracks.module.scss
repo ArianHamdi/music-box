@@ -9,7 +9,7 @@
 
     @include media("<md") {
         width: 100%;
-        max-height: 40rem;
+        max-height: 45rem;
         margin: 4rem auto;
     }
 
@@ -45,7 +45,7 @@
 
     .index {
         font-size: 1.4rem;
-        width: 3rem;
+        min-width: 3rem;
 
         @include media("<md") {
             font-size: 1.6rem;

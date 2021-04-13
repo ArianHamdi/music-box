@@ -13,7 +13,7 @@ import Redirect from '../Components/Redirect/Redirect'
 const Routes = () => (
 
     <Router>
-        {/* <ScrollToTop /> */}
+        <ScrollToTop />
         <Switch >
             <AppLayoutRoute path='/' exact component={Home} />
             <AppLayoutRoute path='/category' exact component={Category} />
