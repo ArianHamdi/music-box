@@ -1,0 +1,36 @@
+.about {
+    display: flex;
+    margin-bottom: 8rem;
+    align-items: center;
+
+    @include media("<md") {
+        flex-direction: column;
+    }
+
+    h2 {
+        display: block;
+        font-size: 2.6rem;
+        color: var(--color-tertiary);
+        margin-bottom: 1rem;
+    }
+
+    p {
+        display: block;
+        font-size: 1.7rem;
+        line-height: 1.5;
+    }
+}
+
+.picture {
+    flex-shrink: 0;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 10px;
+    margin-right: 2.5rem;
+
+    @include media("<md") {
+        margin-right: 0;
+        margin-bottom: 2rem;
+        align-self: center;
+    }
+}

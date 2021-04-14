@@ -1,5 +1,5 @@
 .header {
-    margin: 2rem;
+    margin: 3rem;
     display: flex;
 
     @include media("<md") {
@@ -16,6 +16,7 @@
     border-radius: 10px;
     margin-right: 3rem;
     flex-shrink: 0;
+    box-shadow: 0 1.5rem 4rem black;
 
     @include media("<md") {
         margin: 0;
@@ -35,6 +36,7 @@
         width: 6rem;
         height: 6rem;
         border-radius: 10rem;
+        box-shadow: 0 1.5rem 4rem black;
     }
 }
 

@@ -1,7 +1,7 @@
 import { useEffect, useContext, createContext } from 'react'
 import { shuffle } from '../utilities/utilities'
 import { useImmerReducer } from 'use-immer'
-import { nth } from 'lodash'
+import nth from 'lodash/nth'
 
 const PlaylistStateContext = createContext();
 const PlaylistDispatchContext = createContext();
@@ -117,17 +117,6 @@ const usePlaylistDispatch = () => {
 
 const useSong = () => {
     const { song, count } = useContext(PlaylistStateContext);
-
-    useEffect(() => {
-        const unloadHandler = () => {
-            // save last music to local storage
-            // const playlist = JSON.stringify({ artist, index });
-            // localStorage.setItem('playlist', playlist)
-        }
-        window.addEventListener('unload', unloadHandler)
-        return () => window.removeEventListener('unload', unloadHandler)
-    })
-
     return { song, count }
 }
 
@@ -135,7 +124,6 @@ const useSongId = () => {
     const { song } = useContext(PlaylistStateContext)
     return song?.id
 }
-
 
 export default PlaylistProvider;
 export { useSong, useSongId, usePlaylistDispatch }

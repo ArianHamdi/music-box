@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import styles from './Search.module.scss';
-import { throttle } from 'lodash'
+import throttle from 'lodash/throttle'
 import { CSSTransition } from 'react-transition-group'
 import { useSearchResult } from '../../Hooks/useAPI'
 import { useClickOutside } from '../../Hooks/useClickOutside'

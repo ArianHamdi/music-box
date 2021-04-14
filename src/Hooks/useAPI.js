@@ -1,6 +1,4 @@
-import { useEffect } from 'react'
 import { useQuery } from 'react-query'
-import { usePlaylistDispatch } from '../Contexts/playlist-context'
 import genres from '../data/genres'
 import * as api from '../api'
 
@@ -46,21 +44,6 @@ const useSearchResult = (query, type) => {
 }
 
 
-const usePrefetchArtist = () => {
-    const dispatch = usePlaylistDispatch();
-
-    useEffect(() => {
-        let { artist = 13, index } = JSON.parse(localStorage.getItem('playlist')) || {};
-        index = Number.isInteger(index) ? index : 0;
-        index = Number.isInteger(artist) ? artist : 13;
-
-        // api.getArtistInfo(artist).then(response => {
-        //     const payload = { artist, playlist: response.songs, index }
-        //     dispatch({ type: 'playlist', payload })
-        // })
-    })
-}
-
 export {
     useTopTracks,
     useTopAlbums,
@@ -70,7 +53,6 @@ export {
     useArtistPlaylist,
     useArtistAlbums,
     useArtistRelated,
-    usePrefetchArtist,
     useAlbum,
     useSearchResult
 }

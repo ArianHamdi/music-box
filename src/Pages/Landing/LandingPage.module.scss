@@ -1,4 +1,18 @@
-.landing{
-    background-color: black;
+.landing {
+    background-color: var(--color-dark-2);
     color: var(--color-white-1);
+
+    .content {
+        padding: 6rem 12rem;
+
+        @include media("<md") {
+            padding: 6rem;
+            padding-bottom: 12rem;
+        }
+
+        @include media("<sm") {
+            padding: 2rem;
+            padding-bottom: 18rem;
+        }
+    }
 }

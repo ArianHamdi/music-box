@@ -6,7 +6,8 @@ import genres from '../../../data/genres'
 import Genre from '../../../Components/Genre/Genre'
 
 import Slider from '../../../Components/Slider/Slider'
-import { range, sampleSize } from 'lodash'
+import  sampleSize  from 'lodash/sampleSize'
+import  range  from 'lodash/range'
 
 const Genres = () => {
 
