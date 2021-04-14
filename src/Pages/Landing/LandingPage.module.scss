@@ -3,7 +3,7 @@
     color: var(--color-white-1);
 
     .content {
-        padding: 6rem 12rem;
+        padding: 6rem 12rem 8rem;
 
         @include media("<md") {
             padding: 6rem;
