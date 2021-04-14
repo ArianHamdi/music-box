@@ -1,4 +1,4 @@
-import { Children, useState, useRef } from 'react'
+import { Children, useRef } from 'react'
 import styles from './Slider.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useHistory } from 'react-router-dom'

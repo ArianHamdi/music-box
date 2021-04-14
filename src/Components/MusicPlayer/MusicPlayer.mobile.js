@@ -1,7 +1,7 @@
 import { useState, forwardRef, useEffect, useRef } from 'react'
 import styles from './MusicPlayer.mobile.module.scss';
 
-import { CSSTransition, SwitchTransition } from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group'
 
 import Icon from '../Icon/Icon'
 import { useHistory } from 'react-router-dom'
@@ -21,6 +21,7 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
     const history = useHistory();
     const [show, setShow] = useState(false)
 
+    const transitionRef = useRef();
 
     //prevent back button when modal is open
     useEffect(() => {
@@ -35,7 +36,7 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
         return () => {
             unblock();
         };
-    }, [show]);
+    }, [show, history]);
 
     //set overflow visible when switch to desktop mode
     useEffect(() => {
@@ -60,8 +61,8 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
     const size = 20;
 
     return (
-        <CSSTransition in={show} classNames={{ ...styles }} timeout={1200} >
-            <div className={styles.player} onClick={openMusicPlayer}>
+        <CSSTransition in={show} classNames={{ ...styles }} timeout={1200} nodeRef={transitionRef}>
+            <div ref={transitionRef} className={styles.player} onClick={openMusicPlayer}>
                 <div className={styles.closeContainer} onClick={closeMusicPlayer}>
                     <div className={styles.closeParent}></div>
                 </div>

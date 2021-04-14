@@ -1,5 +1,3 @@
-import breakpoints from '../Constant/breakpoints'
-
 const numberWithCommas = number => {
     // return number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     return number;
@@ -16,19 +14,6 @@ const convertTime = time => {
 }
 
 const shorten = (word, size) => {
-    // let length;
-    // if (size < breakpoints.sm) {
-    //     length = 25
-    // }
-    // else if (size < breakpoints.md) {
-    //     length = 45
-    // }
-    // else if (size < breakpoints.lg) {
-    //     length = 60;
-    // }
-    // else {
-    //     length = 80
-    // }
 
     if (35 > word.length) return word;
 

@@ -7,7 +7,6 @@ import { usePlaylistDispatch, useSongId } from '../../../../Contexts/playlist-co
 import colors from '../../../../Constant/colors'
 import { Desktop } from '../../../../Components/Responsive/Responsive'
 import { useArtistPlaylist } from '../../../../Hooks/useAPI'
-import { useDimentions } from '../../../../Hooks/useDimentions'
 import { convertTime, shorten } from '../../../../utilities/utilities'
 import Icon from '../../../../Components/Icon/Icon'
 import play from '../../../../assets/svg/play.svg'

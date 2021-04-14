@@ -10,7 +10,7 @@ const Title = ({ value }) => {
 
     useEffect(() => {
         document.title = `${uppercaseTitle} Music World`
-    }, [value])
+    }, [uppercaseTitle])
 
     return null
 

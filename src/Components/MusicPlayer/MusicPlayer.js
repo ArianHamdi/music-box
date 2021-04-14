@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from 'react'
-import breakpoints from '../../Constant/breakpoints'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import MusicPlayerDesktop from './MusicPlayer.desktop'
 import MusicPlayerMobile from './MusicPlayer.mobile'
 import { useSong, usePlaylistDispatch } from '../../Contexts/playlist-context'
 import colors from '../../Constant/colors'
 import { convertTime } from '../../utilities/utilities'
+import throttle from 'lodash/throttle'
 
 import Pause from '../../assets/svg/pause.svg'
 import Play from '../../assets/svg/play.svg'
@@ -42,7 +42,13 @@ const MusicPlayer = () => {
         }
     }, [count]);
 
+    const throttledUpdateMusicTime = useCallback(throttle(
+        time => setSongTime(time), 1000)
+        , [])
+
     if (!song) return null;
+
+    console.log('rendered');
 
     const nextSong = () => {
         dispatch({ type: 'next' })
@@ -67,10 +73,6 @@ const MusicPlayer = () => {
         setIsPlaying(playing => !playing);
     }
 
-    const initialMusicTime = () => {
-        console.log('initial');
-    }
-
     const changeMusicTime = percentage => {
         const duration = audioRef.current.duration || 0;
         const currentTime = duration * percentage;
@@ -81,12 +83,14 @@ const MusicPlayer = () => {
         audioRef.current.volume = percentage;
     }
 
+
+
     const updateMusicTime = event => {
         const duration = event.target.duration
         const currentTime = event.target.currentTime;
         const percentage = currentTime * 100 / duration + '%';
 
-        setSongTime({ duration, currentTime })
+        throttledUpdateMusicTime({ duration, currentTime })
 
         const isHold = progressRef.current?.isHold;
         const progress = progressRef.current?.progress;

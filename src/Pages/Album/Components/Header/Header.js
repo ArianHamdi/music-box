@@ -22,8 +22,8 @@ const Header = ({ cover, artist_id, artist_picture, artist_name, title, release_
     return (
         <div className={styles.header} >
             <div className={styles.cover_container}>
-                <img className={styles.cover} src={cover} alt="album cover" />
-                <img className={styles.artist_picture} src={artist_picture} alt="artist picture" onClick={goToArtist} />
+                <img className={styles.cover} src={cover} alt={title} />
+                <img className={styles.artist_picture} src={artist_picture} alt={artist_name} onClick={goToArtist} />
             </div>
             <div className={styles.info} style={{ color }}>
                 <h4 className={styles.year}>{release_year}</h4>

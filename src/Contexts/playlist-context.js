@@ -1,4 +1,4 @@
-import { useEffect, useContext, createContext } from 'react'
+import { useContext, createContext } from 'react'
 import { shuffle } from '../utilities/utilities'
 import { useImmerReducer } from 'use-immer'
 import nth from 'lodash/nth'

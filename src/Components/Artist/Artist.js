@@ -1,9 +1,6 @@
 import { memo } from 'react'
 import styles from './Artist.module.scss';
 import { useHistory } from 'react-router-dom'
-import favorite from '../../assets/svg/favorite.svg'
-import colors from '../../Constant/colors'
-import Icon from '../Icon/Icon'
 
 const Artist = memo(({ id, artist_picture, name, fans }) => {
 

@@ -33,7 +33,7 @@ const Album = () => {
         if (data && state?.autoPlay) {
             dispatch({ type: 'tracks', payload: { playlist: data.tracks } })
         }
-    }, [data])
+    }, [data, dispatch, state?.autoPlay])
 
     if (isError) return <Redirect />
 

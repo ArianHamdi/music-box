@@ -48,7 +48,6 @@ const MusicProgressBar = forwardRef(({ callback }, ref) => {
     const pointerMove = event => {
         if (isHold.current) {
             const childOffset = event.clientX || event.changedTouches[0].clientX;
-            console.log(childOffset);
             const { left: containerOffset, width } = containerRef.current.getBoundingClientRect();
 
             let progressWidth = childOffset - containerOffset;
