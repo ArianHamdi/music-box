@@ -14,7 +14,7 @@
 
     @include media("<sm") {
         width: 50rem;
-        max-width: 95vw;
+        
         height: 5rem;
     }
 }
@@ -74,6 +74,7 @@
     position: absolute;
     top: 6rem;
     width: 40rem;
+    max-width: 90vw;
     border-radius: 10px;
     background-color: #010816f5;
     display: none;
