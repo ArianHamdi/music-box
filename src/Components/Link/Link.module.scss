@@ -1,4 +1,5 @@
 .link {
+    @include no-select;
     width: 100%;
     text-decoration: none;
 }
