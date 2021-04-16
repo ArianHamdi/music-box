@@ -1,7 +1,8 @@
 .link {
     text-decoration: none;
+    @include no-select;
     div {
-        @include no-select;
+       
         display: flex;
         flex-direction: column;
         justify-content: center;
