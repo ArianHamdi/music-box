@@ -12,7 +12,7 @@ import  range  from 'lodash/range'
 const Genres = () => {
 
     const randomList = useMemo(() => {
-        const list = range(0, 14);
+        const list = range(0, 13);
         return sampleSize(list, 8)
     }, [])
 

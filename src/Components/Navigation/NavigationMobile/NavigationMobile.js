@@ -8,9 +8,9 @@ const NavigationMobile = () => {
 
     return (
         <nav className={styles.navigation}>
-            <NavLink path='/' label='Home' icon={home} exact />
-            <NavLink path='/category' label='Category' icon={category} />
-            <NavLink path='/about' label='About' icon={about} />
+            <NavLink to='/' label='Home' icon={home} exact />
+            <NavLink to='/category' label='Category' icon={category} />
+            <NavLink to='/about' label='About' icon={about} />
         </nav>
     )
 }

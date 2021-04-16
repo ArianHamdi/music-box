@@ -1,26 +1,20 @@
-import { memo } from 'react'
 import styles from './Artist.module.scss';
-import { useHistory } from 'react-router-dom'
+import Link from '../Link/Link'
 
-const Artist = memo(({ id, artist_picture, name, fans }) => {
-
-    const history = useHistory();
-
-    const goToHandler = () => {
-        history.push(`/artist/${id}`, { artist_picture });
-    }
-
+const Artist = ({ id, artist_picture, name }) => {
 
     return (
-        <div className={styles.artist} onClick={goToHandler}>
-            <div className={styles.picture} >
-                <img src={artist_picture} alt="artist" />
+        <Link to={`/artist/${id}`} state={{ artist_picture }}>
+            <div className={styles.artist}>
+                <div className={styles.picture} >
+                    <img src={artist_picture} alt="artist" />
+                </div>
+                <div className={styles.description}>
+                    <h5 className={styles.name}>{name}</h5>
+                </div>
             </div>
-            <div className={styles.description}>
-                <h5 className={styles.name}>{name}</h5>
-            </div>
-        </div>
+        </Link>
     )
-})
+}
 
 export default Artist;

@@ -10,7 +10,6 @@ const genres = {
     'country': 84,
     'soul&funk': 169,
     'blues': 152,
-    'indie': 81,
     'latin': 197,
     'reggae': 144,
 }

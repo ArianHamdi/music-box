@@ -1,25 +1,30 @@
 .link {
-    @include no-select;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--color-grey-1);
-    transition: all 0.2s;
-    cursor: pointer;
-    h5 {
-        margin-top: 5px;
-        font-size: 1.6rem;
-    }
-    svg {
-        fill: var(--color-grey-1);
+    text-decoration: none;
+    div {
+        @include no-select;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-grey-1);
+        transition: all 0.2s;
+        cursor: pointer;
+        h5 {
+            margin-top: 5px;
+            font-size: 1.6rem;
+        }
+        svg {
+            fill: var(--color-grey-1);
+        }
     }
 }
 
 .link:hover,
 .linkActive {
-    color: var(--color-tertiary);
-    svg {
-        fill: var(--color-tertiary);
+    div {
+        color: var(--color-tertiary);
+        svg {
+            fill: var(--color-tertiary);
+        }
     }
 }

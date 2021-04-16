@@ -11,7 +11,6 @@ const genres = [
     require('./9.png'),
     require('./10.png'),
     require('./11.png'),
-    require('./12.png'),
-    require('./13.png'),
+    require('./12.png')
 ]
 export default genres;

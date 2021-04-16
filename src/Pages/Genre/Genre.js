@@ -9,10 +9,10 @@ import Redirect from '../../Components/Redirect/Redirect'
 
 const Genre = () => {
 
-    const { genre } = useParams();
+    const genre = useParams().genre.toLowerCase();
 
     const { data } = useAllArtists(genre);
-    
+
     //check if genre is not valid redirect it
     if (Object.keys(genres).indexOf(genre) === -1) return <Redirect />
 
