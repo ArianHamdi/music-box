@@ -37,6 +37,12 @@
         height: 6rem;
         border-radius: 10rem;
         box-shadow: 0 1.5rem 4rem black;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
     }
 }
 
