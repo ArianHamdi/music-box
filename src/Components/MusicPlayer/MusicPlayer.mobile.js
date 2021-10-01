@@ -27,6 +27,7 @@ const MusicPlayerMobile = forwardRef((props, progressRef) => {
     useEffect(() => {
         const unblock = history.block(() => {
             if (show) {
+                changeBodyOverflow('visible')
                 setShow(false);
                 return false;
             }
