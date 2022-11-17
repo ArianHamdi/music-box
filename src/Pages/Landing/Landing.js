@@ -10,7 +10,7 @@ const LandingPage = () => {
             <Title value='About' />
             <Header />
             <div className={styles.content}>
-                {/* <About /> */}
+                <About />
                 <Contact />
             </div>
         </section>

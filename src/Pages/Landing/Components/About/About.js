@@ -14,7 +14,7 @@ const About = () => {
                 </p>
                 </div>
             </section>
-            <section className={styles.about}>
+            {/* <section className={styles.about}>
                 <img className={styles.picture} src={about} alt='about' />
                 <div className={styles.info}>
                     <h2>About Me</h2>
@@ -22,7 +22,7 @@ const About = () => {
                     <p>student of electrical engineering in Shahroud industrial university.</p>
                     <p>interested in computer science specially web programming.</p>
                 </div>
-            </section>
+            </section> */}
         </>
     )
 }
