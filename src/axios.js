@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    // baseURL: 'https://music-box-inter.herokuapp.com/',
-    baseURL: 'https://intermediary.herokuapp.com/',
+    baseURL: 'https://music-box-inter.herokuapp.com/',
+    // baseURL: 'https://intermediary.herokuapp.com/',
 })
 
 instance.interceptors.response.use(response => {
