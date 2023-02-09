@@ -3,7 +3,8 @@ import axios from 'axios';
 const instance = axios.create({
     // baseURL: 'https://music-box-inter.herokuapp.com/',
     // baseURL: 'https://intermediary.herokuapp.com/',
-    baseURL: 'https://intermediary-production.up.railway.app/',
+    // baseURL: 'https://intermediary-production.up.railway.app/',
+    baseURL: 'http://large-underwear-production.up.railway.app',
 })
 
 instance.interceptors.response.use(response => {
